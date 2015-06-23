@@ -4,17 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def is_user?
-    if !current_user.present?
+    if current_user.blank?
       redirect_to :new_user_session
       return
     end
   end
   
   def is_customer?
-    if !current_user.present?
-      redirect_to :new_user_session
-      return
-    end
+    is_user?
 
     if !current_user.role.customer?
       redirect_to :back
@@ -23,7 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    
+    is_user?
+
+    if !current_user.role.admin?
+      redirect_to :back
+      return
+    end
   end
   
 end
