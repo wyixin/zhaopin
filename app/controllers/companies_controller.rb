@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  
+
+  before_action :is_user?, only: [:index, :show, :create]
   before_action :is_customer?, only: [:edit, :update, :destroy]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
