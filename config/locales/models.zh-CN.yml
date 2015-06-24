@@ -5,6 +5,8 @@ zh-CN:
       resume: 简历
       resume_work: 工作经历
       resume_education: 最高学历
+      company: 企业信息
+      job: 职位信息
     attributes:
       resume:
         status: 状态
@@ -39,6 +41,26 @@ zh-CN:
         speciality: 专业名称
         education: 学历
         start_time: 起至日期
+        end_time: ''
+      company:
+        name: 企业名称
+        address: 企业地址
+        contact: 联系人
+        phone: 手机号码
+        email: 邮箱地址
+        web_site: 企业官网
+        logo: 企业logo
+        contents: 企业简介
+      job:
+        name: 职位名称
+        company_id: 所属公司
+        recommend: 是否推荐
+        sex: 性别
+        amount: ''
+        education: 学历
+        experience: 工作年限
+        wage: 薪资
+        start_time: 起止时间
         end_time: ''
 
   enumerize:

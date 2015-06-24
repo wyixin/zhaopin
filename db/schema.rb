@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624104536) do
+ActiveRecord::Schema.define(version: 20150624134116) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -33,22 +33,33 @@ ActiveRecord::Schema.define(version: 20150624104536) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "contact",    limit: 255
-    t.string   "email",      limit: 255
     t.string   "address",    limit: 255
-    t.string   "website",    limit: 255
+    t.string   "contact",    limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "email",      limit: 255
+    t.string   "web_site",   limit: 255
     t.string   "logo",       limit: 255
+    t.string   "logo_audit", limit: 255
+    t.string   "contents",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "company_id", limit: 4
-    t.string   "price",      limit: 255
-    t.string   "address",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",            limit: 255
+    t.integer  "company_id",      limit: 4
+    t.string   "recommend",       limit: 255
+    t.string   "sex",             limit: 255
+    t.string   "amount",          limit: 255
+    t.integer  "category_id",     limit: 4
+    t.integer  "sub_category_id", limit: 4
+    t.string   "education",       limit: 255
+    t.string   "experience",      limit: 255
+    t.string   "wage",            limit: 255
+    t.date     "strat_time"
+    t.date     "end_time"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "resume_attachments", force: :cascade do |t|
