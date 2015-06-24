@@ -56,7 +56,7 @@ zh-CN:
         company_id: 所属公司
         recommend: 是否推荐
         sex: 性别
-        amount: ''
+        amount: Amount
         education: 学历
         experience: 工作年限
         wage: 薪资
@@ -64,6 +64,11 @@ zh-CN:
         end_time: ''
 
   enumerize:
+    user:
+      role:
+        user: 用户
+        customer: 客服
+        admin: 管理员
     resume:
       status:
         normal: 正常

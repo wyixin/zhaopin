@@ -21,6 +21,12 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    @jobs = @company.jobs
+    if @jobs.present?
+      @job = @jobs.first
+    else
+      @job = Job.new(:company_id=>@company.id)
+    end
   end
 
   # POST /companies

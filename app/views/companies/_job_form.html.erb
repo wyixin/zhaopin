@@ -1,0 +1,56 @@
+<%= form_for @job, url: create_job_companies_path, html:{method: 'post'} do |f| %>
+  <%= f.hidden_field :company_id %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :recommend %><br>
+    <%= f.text_field :recommend %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br>
+    <%= radio_button_tag(:sex, "female", :checked => (:sex == 'female')? true:false) %>
+    <span>女</span>
+    <%= radio_button_tag(:sex, "male", :checked => (:sex == 'male')? true:false) %>
+    <span>男</span>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br>
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br>
+    <%= f.text_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :wage %><br>
+    <%= f.text_field :wage %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.date_select :strat_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.date_select :end_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

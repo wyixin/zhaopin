@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :companies
+  resources :companies do
+    collection do
+      post 'create_job'
+    end
+  end
   resources :resumes, only: [:create_work, :display, :modify, :create_education] do
     collection do
       post 'create_work'
