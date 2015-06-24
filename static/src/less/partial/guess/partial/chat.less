@@ -1,0 +1,51 @@
+.guessChat{
+  margin: ;
+  a{
+    color:@fcAnty
+  }
+  span.niceName{
+    color:#66B3FF;
+  }
+  background-color: #fff;
+  color: @fcAnty;
+  word-wrap: break-word; 
+  word-break: break-all;
+  .guessChatWrapper{
+    height: @liveHeight;
+    
+    .chatTabs{
+      height: (@liveHeight * 0.1);
+      padding: 1em;
+      a{
+        padding: 1em;
+        border-bottom: 2px solid #ddd;
+        &.active{
+          border-bottom: 2px solid @BDC;
+        }
+      }
+    }
+    .chatContent,
+    .chatUsers{
+      padding: 0em 1em 1em 1em;
+      height: (@liveHeight * 0.6);
+      overflow-y: scroll;
+    }
+    
+    .chatFooter{
+      height: (@liveHeight * 0.3);
+      background-color: #ddd;
+      padding: 10px;
+      .chatTools{
+        height: 40px;
+      }
+      .messageBox,
+      .send{
+        width: 100%;
+        height: (@liveHeight * 0.3) - 20 - 40;
+      }
+      .messageBox{
+        resize:none;
+      }
+    }
+  }
+}

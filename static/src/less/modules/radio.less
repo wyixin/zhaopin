@@ -1,0 +1,21 @@
+.betRadio{
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  position: relative;
+  top: .1em;
+  border: 2px solid #000;
+  background-color: #171717;
+  border-radius: 50%;
+  text-align: center;
+  &.selected{
+    .bgLight();
+  }
+  &.selected:before{
+    content: '√';
+  }
+  &:before{
+    content: '\00a0';
+  }
+}

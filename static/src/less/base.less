@@ -1,0 +1,72 @@
+// 全局基本标签样式
+body{
+  font-family:"Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-size: @fzDefault;
+  background-color: rgb(244, 244, 244);
+}
+
+a{
+  color: @fcDefault;
+}
+
+a:hover{
+  color: @fcDefault;
+  text-decoration:none;
+}
+a:focus{
+  color: @fcDefault;
+  outline: none;
+  text-decoration:none;
+}
+input{
+  height: @inputHeight;
+  line-height: @inputHeight;
+  padding-left: 1em;
+}
+textarea{
+  .hard();
+  padding: 1em;
+}
+input:focus,
+textarea:focus{
+  transition: border-color .3s, opacity .3s;
+  outline: none;
+}
+label{
+  height: @inputHeight;
+  line-height: @inputHeight;
+}
+button{
+  height: @inputHeight;
+  transition: border-color .3s, opacity .3s;
+  color: #fff;
+}
+button:active{
+  opacity:0.5;
+}
+button:focus{
+  outline: none;
+}
+
+table{
+  background-color: #171717;
+  border: 2px solid #000;
+  tbody{
+  }
+  thead{
+    background-color: #313131;
+    tr:hover{
+      background-color: lighten(#313131, 5%);
+    }
+  }
+  tr{
+    border: 1px solid #313131;
+    transition: background-color .3s;
+    &:hover{
+      background-color: lighten(#171717, 5%);
+    }
+    td{
+      padding: 1em 1em;
+    }
+  }
+}

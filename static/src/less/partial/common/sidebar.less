@@ -1,0 +1,21 @@
+.sidebar{
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #fff;
+  .sidebarContent{
+    margin-left: -10px;
+    margin-right: -10px;
+    .sidebarItem{
+      color: @fcPale;
+      padding: 5px 0;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: inline-block;
+      float: left;
+      transition: color .3s;
+      &:hover{
+        color: darken(@fcPale, 30%);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.nav{
+  @navHeight: 45px;
+  height: @navHeight;
+  background-color: @BDC;
+  .item{
+    display: inline-block;
+    padding: 0 2em;
+    height: @navHeight;
+    line-height: @navHeight;
+    transition: background-color .3s;
+    &:hover{
+      background-color: lighten(@BDC, 10%);
+    }
+  }
+  .userName{
+    height: @navHeight;
+    line-height: @navHeight;    
+  }
+}

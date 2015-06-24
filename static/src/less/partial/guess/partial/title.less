@@ -1,0 +1,35 @@
+.guessTitle{
+  @topheight: 60px;
+  .topTitle{
+    height: @topheight;
+    line-height: @topheight;
+  }
+  .line{
+    @titleBDS: 1px solid #333;
+    border-bottom: @titleBDS;
+    border-top: @titleBDS;
+    margin: (@topheight - 2) / 2 0;
+  }
+  .subTitle{
+    color: @fcPale;
+  }
+  .raceInfo{
+    margin-top: 1em;
+    padding: 3em 0;
+    .teamLeft{
+      padding-left: 6em;
+    }
+    .teamRight{
+      padding-right: 6em;
+    }
+    .time{
+      line-height: 250%;
+      position: relative;
+      top: -2em;
+      button{
+        line-height: 100%;
+        padding: .3em 1em;
+      }
+    }
+  }
+}

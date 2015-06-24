@@ -44,3 +44,10 @@ bower.json
 
 # Ignore database config file
 config/database.yml
+
+bower_components/
+node_modules/
+*.swp
+*~
+npm-debug.log
+UE/

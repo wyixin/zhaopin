@@ -1,0 +1,13 @@
+.hard{
+  background: #171717;
+  border: 2px solid #000;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 1px #FFF;
+}
+
+.bgLight{
+  background:@lightBGC; /* 一些不支持背景渐变的浏览器 */  
+  background:-moz-linear-gradient(linear, 0 0, 0 bottom, from(@defaultBackgroundColor), to(@lightBGC));  
+  background:-webkit-gradient(linear, 0 0, 0 bottom, from(darken(@lightBGC, 30%)), to(@lightBGC)); 
+  background:-ms-gradient(linear, 0 0, 0 bottom, from(@defaultBackgroundColor), to(@lightBGC));
+  background:-webkit-gradient(linear, 0 0, 0 bottom, from(darken(@lightBGC, 30%)), to(@lightBGC));
+}

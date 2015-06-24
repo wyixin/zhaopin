@@ -1,0 +1,74 @@
+.guessWorkspace{
+  .workSpaceContent{
+    padding: 2em;
+    .invictusBox{
+      margin: 2em 0;
+    }
+    .invictusTitle{
+      margin-bottom: 1.5em;
+      .radio{
+        margin-right: .5em;
+      }
+    }
+    .powerBar{
+      .hard();
+      padding: 1em;
+      .powerOutLine{
+        border: 2px solid #000;
+        border-radius: 4px;
+        background-color: @fcAnty;
+        .powerInLine{
+          padding: 9px;
+          .bgLight();
+        }
+      }
+    }
+  }
+  .powerBarInfo{
+    padding: 1em;
+    .hard();
+    border-left-width: 0;
+  }
+
+  .betBox{
+    margin-top: 4em;
+    .select{
+      height: @inputHeight;
+      line-height: @inputHeight;
+      .hard();
+      cursor: pointer;
+      .selectValue{
+        padding-left: 1em;
+      }
+      .select-icon{
+        height: @inputHeight - 4;
+        line-height: @inputHeight - 4;
+        .hard();
+        border-width: 0 0 0 1px;
+        background-color: @fcAnty;
+      }
+    }
+    .optsWrapper{
+      border-radius: 4px;
+      position: absolute;
+      width: 100%;
+      margin-top: 1em;
+      .opt{
+        cursor: pointer;
+        height: @inputHeight;
+        line-height: @inputHeight;
+        transition: background-color .3s;
+        padding-left: 1em;
+        .hard();
+        &:hover{
+          background-color: lighten(@fcAnty, 5%);
+        }
+      }
+    }
+    button{
+      height: @inputHeight;
+      line-height: @inputHeight;
+      padding: 0;
+    }
+  }
+}

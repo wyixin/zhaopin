@@ -1,0 +1,43 @@
+.selectWrapper{
+  position: relative;
+  z-index:99;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;  
+  .select{
+    height: @inputHeight;
+    line-height: @inputHeight;
+    .hard();
+    cursor: pointer;
+    .selectValue{
+      padding-left: 1em;
+    }
+    .select-icon{
+      height: @inputHeight - 4;
+      line-height: @inputHeight - 4;
+      .hard();
+      border-width: 0 0 0 1px;
+      background-color: @fcAnty;
+    }
+  }
+  .optsWrapper{
+    background-color: @bgc-gray;
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    margin-top: 1em;
+    z-index: 99;
+    float: left;
+    .opt{
+      cursor: pointer;
+      height: @inputHeight;
+      line-height: @inputHeight;
+      transition: background-color .3s;
+      padding-left: 1em;
+      .hard();
+      &:hover{
+        background-color: lighten(@fcAnty, 5%);
+      }
+    }
+  }
+}
