@@ -3,11 +3,27 @@
 one:
   name: MyString
   company_id: 1
-  price: MyString
-  address: MyString
+  recommend: MyString
+  sex: MyString
+  amount: MyString
+  category_id: 1
+  sub_category_id: 1
+  education: MyString
+  experience: MyString
+  wage: MyString
+  strat_time: 2015-06-24
+  end_time: 2015-06-24
 
 two:
   name: MyString
   company_id: 1
-  price: MyString
-  address: MyString
+  recommend: MyString
+  sex: MyString
+  amount: MyString
+  category_id: 1
+  sub_category_id: 1
+  education: MyString
+  experience: MyString
+  wage: MyString
+  strat_time: 2015-06-24
+  end_time: 2015-06-24

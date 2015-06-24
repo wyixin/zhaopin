@@ -6,8 +6,18 @@
 </p>
 
 <p>
+  <strong>Address:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
   <strong>Contact:</strong>
   <%= @company.contact %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @company.phone %>
 </p>
 
 <p>
@@ -16,18 +26,23 @@
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @company.website %>
+  <strong>Web site:</strong>
+  <%= @company.web_site %>
 </p>
 
 <p>
   <strong>Logo:</strong>
   <%= @company.logo %>
+</p>
+
+<p>
+  <strong>Logo audit:</strong>
+  <%= @company.logo_audit %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @company.contents %>
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |

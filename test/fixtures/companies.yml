@@ -2,16 +2,22 @@
 
 one:
   name: MyString
-  contact: MyString
-  email: MyString
   address: MyString
-  website: MyString
+  contact: MyString
+  phone: MyString
+  email: MyString
+  web_site: MyString
   logo: MyString
+  logo_audit: MyString
+  contents: MyString
 
 two:
   name: MyString
-  contact: MyString
-  email: MyString
   address: MyString
-  website: MyString
+  contact: MyString
+  phone: MyString
+  email: MyString
+  web_site: MyString
   logo: MyString
+  logo_audit: MyString
+  contents: MyString

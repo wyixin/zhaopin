@@ -1,7 +1,4 @@
 class CompaniesController < ApplicationController
-
-  before_action :is_user?, only: [:index, :show]
-  before_action :is_customer?, only: [:edit, :update, :destroy]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -72,6 +69,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :contact, :email, :address, :website, :logo)
+      params.require(:company).permit(:name, :address, :contact, :phone, :email, :web_site, :logo, :logo_audit, :contents)
     end
 end
