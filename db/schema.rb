@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624080743) do
+ActiveRecord::Schema.define(version: 20150624104536) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150624080743) do
     t.string   "school",     limit: 255
     t.string   "speciality", limit: 255
     t.string   "education",  limit: 255
-    t.string   "start_time", limit: 255
-    t.string   "end_time",   limit: 255
+    t.date     "start_time"
+    t.date     "end_time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20150624080743) do
     t.string   "company",      limit: 255
     t.string   "job",          limit: 255
     t.string   "wage",         limit: 255
-    t.string   "start_time",   limit: 255
-    t.string   "end_time",     limit: 255
+    t.date     "start_time"
+    t.date     "end_time"
     t.text     "achievements", limit: 65535
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false

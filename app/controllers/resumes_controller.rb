@@ -34,6 +34,7 @@ class ResumesController < ApplicationController
 
   def create_work
     @resume_work = ResumeWork.find(params[:id])
+    @resume_work.start_time = resume_work_params[1]
     respond_to do |format|
       if @resume_work.update(resume_work_params)
         format.html { redirect_to :back, notice: 'ResumeWork was successfully updated.' }

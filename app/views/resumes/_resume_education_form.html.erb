@@ -1,4 +1,4 @@
-<%= form_for @resume_work,:url => create_education_resumes_path(:id=>@resume_education.id), :html=>{:method=>'post'} do |f| %>
+<%= form_for @resume_education,:url => create_education_resumes_path(:id=>@resume_education.id), :html=>{:method=>'post'} do |f| %>
   <% if @resume_education.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@resume_education.errors.count, "error") %> prohibited this resume_education from being saved:</h2>

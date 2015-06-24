@@ -3,6 +3,8 @@ zh-CN:
     models:
       user: 用户
       resume: 简历
+      resume_work: 工作经历
+      resume_education: 最高学历
     attributes:
       resume:
         status: 状态
