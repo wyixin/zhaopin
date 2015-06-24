@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :resumes do
     collection do
       post 'create_work'
-      get 'edit'
+      get 'display'
+      post 'modify'
+      post 'create_education'
     end
   end
   resources :companies

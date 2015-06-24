@@ -1,0 +1,38 @@
+<%= form_for @resume_work,:url => create_education_resumes_path(:id=>@resume_education.id), :html=>{:method=>'post'} do |f| %>
+  <% if @resume_education.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resume_education.errors.count, "error") %> prohibited this resume_education from being saved:</h2>
+
+      <ul>
+      <% @resume_education.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    <%= f.label :speciality %><br>
+    <%= f.text_field :speciality %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br>
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.date_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.date_select :end_time %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

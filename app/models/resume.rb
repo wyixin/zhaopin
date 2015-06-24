@@ -12,9 +12,7 @@ class Resume < ActiveRecord::Base
 
   #relations
   belongs_to :user
-  has_many :resume_attachment
-  has_many :resume_work
-
-
+  has_many :resume_attachments
+  has_many :resume_works
 
 end

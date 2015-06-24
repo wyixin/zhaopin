@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
   def init_resume
     resume = Resume.new(:user_id=>self.id)
     resume.save
+
+    resume_work = ResumeWork.new(:resume_id=>resume.id)
+    resume_work.save
+
+    resume_education = ResumeEducation.new(:user_id=>self.id)
+    resume_education.save
   end
 
 end
