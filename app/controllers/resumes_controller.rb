@@ -1,7 +1,7 @@
 class ResumesController < ApplicationController
   before_action :is_user?
   before_action :set_resume, only: [:show, :edit, :update, :destroy, :modify]
-
+  before_action :is_admin?, only: [:index, :show]
   # GET /resumes
   # GET /resumes.json
   # def index

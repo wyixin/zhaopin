@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :resumes do
+  resources :resumes, only: [:create_work, :display, :modify, :create_education] do
     collection do
       post 'create_work'
       get 'display'
