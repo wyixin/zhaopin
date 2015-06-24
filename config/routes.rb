@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :resumes do
+    collection do
+      post 'create_work'
+    end
+  end
   resources :companies
   resources :articles
   resources :categories

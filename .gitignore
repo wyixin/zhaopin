@@ -6,11 +6,13 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
+/config/database.yml
 /coverage/
 /spec/tmp
 **.orig
 rerun.txt
 pickle-email-*.html
+
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
@@ -19,6 +21,7 @@ config/secrets.yml
 ## Environment normalisation:
 /.bundle
 /vendor/bundle
+.idea/
 
 # these should all be checked in to normalise the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
@@ -31,9 +34,11 @@ config/secrets.yml
 *.bowerrc
 bower.json
 
+
 # Ignore pow environment settings
 .powenv
 
 # Ignore emacs tmp file
 \#*\#
 .\#*
+

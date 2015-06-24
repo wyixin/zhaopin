@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623120128) do
+ActiveRecord::Schema.define(version: 20150624080743) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -49,6 +49,62 @@ ActiveRecord::Schema.define(version: 20150623120128) do
     t.string   "address",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "resume_attachments", force: :cascade do |t|
+    t.integer  "resume_id",       limit: 4
+    t.string   "attachment_file", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "resume_educations", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "school",     limit: 255
+    t.string   "speciality", limit: 255
+    t.string   "education",  limit: 255
+    t.string   "start_time", limit: 255
+    t.string   "end_time",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "resume_works", force: :cascade do |t|
+    t.integer  "resume_id",    limit: 4
+    t.string   "company",      limit: 255
+    t.string   "job",          limit: 255
+    t.string   "wage",         limit: 255
+    t.string   "start_time",   limit: 255
+    t.string   "end_time",     limit: 255
+    t.text     "achievements", limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "status",           limit: 255
+    t.integer  "user_id",          limit: 4
+    t.string   "title",            limit: 255
+    t.string   "fullname",         limit: 255
+    t.string   "email",            limit: 255
+    t.string   "phone",            limit: 255
+    t.string   "sex",              limit: 255
+    t.date     "birthday"
+    t.string   "height",           limit: 255
+    t.string   "marriage",         limit: 255
+    t.string   "tag",              limit: 255
+    t.string   "qq",               limit: 255
+    t.string   "intention_jobs",   limit: 255
+    t.string   "wage",             limit: 255
+    t.string   "district",         limit: 255
+    t.string   "photo_img",        limit: 255
+    t.string   "photo_audit",      limit: 255
+    t.string   "talent",           limit: 255
+    t.string   "complete_percent", limit: 255
+    t.integer  "click",            limit: 4
+    t.string   "tpl",              limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,82 @@
+<%= form_for(@resume) do |f| %>
+    <% if @resume.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+          <ul>
+            <% @resume.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :fullname %><br>
+      <%= f.text_field :fullname %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="field">
+      <%= f.label :sex %><br>
+      <%= radio_button_tag(:sex, "female", :checked => (:sex == 'female')? true:false) %>
+      <span>女</span>
+      <%= radio_button_tag(:sex, "male", :checked => (:sex == 'male')? true:false) %>
+      <span>男</span>
+    </div>
+    <div class="field">
+      <%= f.label :birthday %><br>
+      <%= f.date_select :birthday %>
+    </div>
+    <div class="field">
+      <%= f.label :height %><br>
+      <%= f.text_field :height %>
+    </div>
+    <div class="field">
+      <%= f.label :marriage %><br>
+      <%= radio_button_tag(:marriage, "y", :checked => (:marriage == 'y')? true:false) %>
+      <span>是</span>
+      <%= radio_button_tag(:marriage, "n", :checked => (:marriage == 'n')? true:false) %>
+      <span>否</span>
+    </div>
+    <div class="field">
+      <%= f.label :tag %><br>
+      <%= f.text_field :tag %>
+    </div>
+    <div class="field">
+      <%= f.label :qq %><br>
+      <%= f.text_field :qq %>
+    </div>
+    <div class="field">
+      <%= f.label :intention_jobs %><br>
+      <%= f.text_field :intention_jobs %>
+    </div>
+    <div class="field">
+      <%= f.label :wage %><br>
+      <%= f.text_field :wage %>
+    </div>
+    <div class="field">
+      <%= f.label :district %><br>
+      <%= f.text_field :district %>
+    </div>
+    <div class="field">
+      <%= f.label :photo_img %><br>
+      <%= f.text_field :photo_img, :type=>:file %>
+    </div>
+    <div class="field">
+      <%= f.label :talent %><br>
+      <%= f.text_field :talent %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

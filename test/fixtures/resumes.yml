@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  user_id: 1
+  resume_work_id: 1
+  resume_education_id: 1
+  resume_attachment_id: MyString
+  title: MyString
+  fullname: MyString
+  email: MyString
+  phone: MyString
+  sex: MyString
+  birthday: 2015-06-24
+  height: MyString
+  marriage: MyString
+  tag: MyString
+  qq: MyString
+  intention_jobs: MyString
+  wage: MyString
+  district: MyString
+  photo_img: MyString
+  photo_audit: MyString
+  talent: MyString
+  complete_percent: MyString
+  click: 1
+  tpl: MyString
+
+two:
+  status: MyString
+  user_id: 1
+  resume_work_id: 1
+  resume_education_id: 1
+  resume_attachment_id: MyString
+  title: MyString
+  fullname: MyString
+  email: MyString
+  phone: MyString
+  sex: MyString
+  birthday: 2015-06-24
+  height: MyString
+  marriage: MyString
+  tag: MyString
+  qq: MyString
+  intention_jobs: MyString
+  wage: MyString
+  district: MyString
+  photo_img: MyString
+  photo_audit: MyString
+  talent: MyString
+  complete_percent: MyString
+  click: 1
+  tpl: MyString
