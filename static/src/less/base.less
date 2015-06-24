@@ -18,7 +18,8 @@ a:focus{
   outline: none;
   text-decoration:none;
 }
-input{
+input[type="text"],
+select{
   height: @inputHeight;
   line-height: @inputHeight;
   padding-left: 1em;
@@ -27,8 +28,9 @@ textarea{
   .hard();
   padding: 1em;
 }
-input:focus,
-textarea:focus{
+input[type="text"]:focus,
+textarea:focus,
+select:focus{
   transition: border-color .3s, opacity .3s;
   outline: none;
 }
