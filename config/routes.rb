@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :resumes do
     collection do
       post 'create_work'
+      get 'edit'
     end
   end
   resources :companies

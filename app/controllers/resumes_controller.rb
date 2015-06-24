@@ -22,6 +22,7 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1/edit
   def edit
+    @resume_work = ResumeWork.new
   end
 
   # POST /resumes
@@ -67,7 +68,7 @@ class ResumesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resume
-      @resume = Resume.where(:user_id, current_user.id).first
+      @resume = Resume.where(:user_id=>current_user.id).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
