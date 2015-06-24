@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume_id: 1
+  school: MyString
+  speciality: MyString
+  education: MyString
+  start_time: MyString
+  end_time_string: MyString
+
+two:
+  resume_id: 1
+  school: MyString
+  speciality: MyString
+  education: MyString
+  start_time: MyString
+  end_time_string: MyString

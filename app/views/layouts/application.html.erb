@@ -2,25 +2,38 @@
 <html>
 <head>
   <title>维鼎猎聘网</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+    <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+    <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
 
 <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  当前用户： <strong><%= current_user.email %></strong>.
-  <%= link_to '修改信息', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "注销", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% if user_signed_in? %>
+    <div>
+      <ul>
+        <li>
+          <%= link_to '我的简历',resumes_path %>
+        </li>
+        <li>
+          <%= link_to '招聘信息',resumes_path %>
+        </li>
+        <li>
+          <%= link_to '就业培训',resumes_path %>
+        </li>
+      </ul>
+    </div>
+    当前用户： <strong><%= current_user.email %></strong>.
+    <%= link_to '修改信息', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "注销", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
 <% end %>
 
 <%= yield %>
