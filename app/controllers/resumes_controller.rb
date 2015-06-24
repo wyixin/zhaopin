@@ -10,8 +10,6 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1
   # GET /resumes/1.json
-  def show
-  end
 
   def display
     @resume = Resume.where(:user_id=>current_user.id).first
@@ -24,7 +22,7 @@ class ResumesController < ApplicationController
     respond_to do |format|
       if @resume.update(resume_params)
         format.html { redirect_to :back, notice: 'Resume was successfully updated.' }
-        format.json { render :show, status: :created, location: @resume }
+        format.json { render :display, status: :created, location: @resume }
       else
         format.html { render :display }
         format.json { render json: @resume.errors, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class ResumesController < ApplicationController
     respond_to do |format|
       if @resume_work.update(resume_work_params)
         format.html { redirect_to :back, notice: 'ResumeWork was successfully updated.' }
-        format.json { render :show, status: :updated, location: @resume_work }
+        format.json { render :display, status: :updated, location: @resume_work }
       else
         format.html { render :display }
         format.json { render json: @resume_work.errors, status: :unprocessable_entity }
@@ -51,7 +49,7 @@ class ResumesController < ApplicationController
     respond_to do |format|
       if @resume_education.update(resume_education_params)
         format.html { redirect_to :back, notice: 'ResumeEducation was successfully updated.' }
-        format.json { render :show, status: :updated, location: @resume_education }
+        format.json { render :display, status: :updated, location: @resume_education }
       else
         format.html { render :display }
         format.json { render json: @resume_education.errors, status: :unprocessable_entity }
