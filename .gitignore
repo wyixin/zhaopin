@@ -42,3 +42,5 @@ bower.json
 \#*\#
 .\#*
 
+# Ignore database config file
+config/database.yml
