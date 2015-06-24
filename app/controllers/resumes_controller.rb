@@ -15,7 +15,9 @@ class ResumesController < ApplicationController
 
   # GET /resumes/new
   def new
+    #current_user.init_resume
     @resume = Resume.new
+    @resume_work = ResumeWork.new
   end
 
   # GET /resumes/1/edit
@@ -29,7 +31,7 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
+        format.html { redirect_to :back, notice: 'Resume was successfully created.' }
         format.json { render :show, status: :created, location: @resume }
       else
         format.html { render :new }
