@@ -3,8 +3,16 @@
     <div class="col-4">
       <%=image_tag 'logo.jpg', :alt=>"logo", :class=>"img-responsive logo"%>
     </div>
-    <div class="col-12 col-offset-5"><input type="text" placeholder="搜索专属你的职位" class="col-48 ipt-primary"></div>
-    <div class="col-4"><button class="col-48 btn-primary">搜索</button></div>
-    <div class="col-6 pull-right"><button class="col-48 btn-default">发布简历</button></div>
+    <form action="/jobs/new_job">
+        <div class="col-12 col-offset-5">
+          <input name="job_name" type="text" placeholder="搜索专属你的职位" class="col-48 ipt-primary">
+        </div>
+        <div class="col-4">
+          <button class="col-48 btn-primary">搜索</button>
+        </div>
+    </form>
+    <div class="col-6 pull-right">
+      <button class="col-48 btn-default">发布简历</button>
+    </div>
   </div>
 </div>
