@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post 'create_education'
     end
   end
+  resources :jobs
   resources :articles
   resources :categories
 
