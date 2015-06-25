@@ -1,55 +1,107 @@
-<%= form_for(@company) do |f| %>
-  <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<div class="row">
+    <%= form_for(@company) do |f| %>
+      <% if @company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-      <% @company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @company.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :web_site %><br>
-    <%= f.text_field :web_site %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
-  </div>
-  <div class="field">
-    <%= f.label :logo_audit %><br>
-    <%= f.text_field :logo_audit %>
-  </div>
-  <div class="field">
-    <%= f.label :contents %><br>
-    <%= f.text_field :contents %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= render 'job_form'%>
+        <div class="col-48 line">
+          <div class="row">
+            <div class="col-4">
+              <label for="">企业名称</label>
+              <span class="light">*</span>
+            </div>
+            <div class="col-44">
+              <input id="company_name" type="text" name="company[name]" value="<%=@company.name%>">
+            </div>
+          </div>
+        </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">手机号码</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="company_phone" type="text" name="company[phone]" value="<%=@company.phone%>">
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">常用邮箱</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="company_email" type="text" name="company[email]" value="<%=@company.email%>">
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">企业地址</label>
+          </div>
+          <div class="col-44">
+            <input id="company_address" type="text" name="company[address]" value="<%=@company.address%>">
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">联系人</label>
+          </div>
+          <div class="col-44">
+            <input id="company_contact" type="text" name="company[contact]" value="<%=@company.contact%>">
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">企业官网</label>
+          </div>
+          <div class="col-44">
+            <input id="company_web_site" type="text" name="company[web_site]" value="<%=@company.web_site%>">
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">logo</label>
+          </div>
+          <div class="col-44">
+            <input id="company_logo" type="file" name="company[logo]" />
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">企业简介</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <textarea style="background-color: #ffffff;border:1px solid grey;"><%=@company.logo%></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-44">
+            <button class="btn-primary" type="submit" >保存</button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

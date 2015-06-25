@@ -1,0 +1,157 @@
+<div class="job_div">
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">职位名称</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <input id="job_name" type="text" name="job[name][]" value="<%=@job.name %>"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">行业分类</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <div class="row">
+          <select name="job[sub_category_id][]">
+            <% @sub_categories.each do |sub_category| %>
+                <option <%if @job.sub_category_id==sub_category.id%>selected<% end %> value="<%=sub_category.id %>">
+                  <%=sub_category.name %>
+                </option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">热门职位</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <div class="row">
+          <select name="job[recommend][]">
+            <option <%if @job.recommend=='y'%>selected<% end %> value="y">
+                是
+            </option>
+            <option <%if @job.recommend=='n'%>selected<% end %> value="n">
+              否
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">性别</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <div class="row">
+          <select name="job[sex][]">
+            <option <%if @job.sex=='male'%>selected<% end %> value="male">
+              男
+            </option>
+            <option <%if @job.sex=='female'%>selected<% end %> value="female">
+              女
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">学历</label>
+      </div>
+      <div class="col-44">
+        <input id="job_education" type="text" name="job[education][]" value="<%=@job.education %>" placeholder="如: 本科以上"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">工作年限</label>
+      </div>
+      <div class="col-44">
+        <input id="job_experience" type="text" name="job[experience][]" value="<%=@job.experience %>" placeholder="如: 1-3"/>年
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">薪资</label>
+      </div>
+      <div class="col-44">
+        <input id="job_wage" type="text" name="job[wage][]" value="<%=@job.wage %>" placeholder="如: 8000-10000"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">起止日期</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <div class="row">
+          <select name="job[strat_time(1i)][]" id="resume_work_start_time_1i">
+            <% (2015..2020).each do |y|%>
+                <option value="<%=y%>" <%if year(@job.strat_time)==y%>selected<%end%>><%=y%></option>
+            <% end %>
+          </select>
+          <select name="job[strat_time(2i)][]" id="resume_work_start_time_2i">
+            <% (1..12).each do |m|%>
+                <option value="<%=m %>" <%if month(@job.strat_time)==m%>selected<%end%>><%=m %></option>
+            <% end %>
+          </select>
+          <select name="job[strat_time(3i)][]" id="resume_work_start_time_3i">
+            <% (1..31).each do |d|%>
+                <option value="<%=d %>" <%if day(@job.strat_time)==d%>selected<%end%>><%=d %></option>
+            <% end %>
+          </select>
+
+        </div>
+
+        <div class="row">
+          <select name="job[end_time(1i)][]" id="resume_work_end_time_1i">
+            <% (2015..2020).each do |y|%>
+                <option value="<%=y%>" <%if year(@job.end_time)==y%>selected<%end%>><%=y%></option>
+            <% end %>
+          </select>
+          <select name="job[end_time(2i)][]" id="resume_work_end_time_2i">
+            <% (1..12).each do |m|%>
+                <option value="<%=m %>" <%if month(@job.end_time)==m%>selected<%end%>><%=m %></option>
+            <% end %>
+          </select>
+          <select name="job[end_time(3i)][]" id="resume_work_end_time_3i">
+            <% (1..31).each do |d|%>
+                <option value="<%=d %>" <%if day(@job.end_time)==d%>selected<%end%>><%=d %></option>
+            <% end %>
+          </select>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

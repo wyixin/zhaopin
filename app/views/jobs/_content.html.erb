@@ -27,13 +27,13 @@
                 <!--<div class="col-4"><img src="/static/src/images/head.jpg" alt="username"></div>-->
                 <div class="col-44">
                   <div class="row">
-                    <div class="col-48 title"><%=job.name %>[北京]
+                    <div class="col-48 title"><%=job.name %>
                       <span class="time pull-right"><%=job.created_at.strftime("%Y-%m-%d %H:%M:%S")%> 发布</span>
                     </div>
                     <div class="col-48 ins">
                       经验<%= job.experience %>年/
                       <%= job.education %>/
-                      <%= job.category.name %>
+                      <%= job.category.name rescue '' %>
                       <span class="salary pull-right">￥<%= job.wage %></span>
                     </div>
                   </div>

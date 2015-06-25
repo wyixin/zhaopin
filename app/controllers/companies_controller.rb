@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :is_user?, only: [:index, :show]
-  before_action :is_customer?, only: [:edit, :update, :destroy]
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :is_customer?, only: [:edit, :update, :destroy, :edit_job, :create_job]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :edit_job, :create_job]
 
   # GET /companies
   # GET /companies.json
@@ -21,13 +21,42 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
-    @jobs = @company.jobs
-    if @jobs.present?
-      @job = @jobs.first
-    else
-      @job = Job.new(:company_id=>@company.id)
-    end
   end
+
+  def edit_job
+    @jobs = @company.jobs
+    @job = Job.new(:company_id=>@company.id)
+    @sub_categories = SubCategory.all
+  end
+
+  def create_job
+    @company.jobs.destroy_all
+
+    job_length = params[:job][:name].length
+
+    (0..job_length-1).each do |i|
+      start_time = "#{params[:job]['strat_time(1i)'][i]}-#{params[:job]['strat_time(2i)'][i]}-#{params[:job]['strat_time(3i)'][i]}"
+      end_time = "#{params[:job]['end_time(1i)'][i]}-#{params[:job]['end_time(2i)'][i]}-#{params[:job]['end_time(3i)'][i]}"
+      category_id = SubCategory.find(params[:job][:sub_category_id][i]).id
+      job = Job.new(
+          :company_id=>@company.id,
+          :name=>params[:job][:name][i],
+          :sub_category_id=>params[:job][:sub_category_id][i],
+          :category_id=>category_id,
+          :sex=>params[:job][:sex][i],
+          :recommend=>params[:job][:recommend][i],
+          :strat_time=>start_time,
+          :end_time=>end_time,
+          :education=>params[:job][:education][i],
+          :experience=>params[:job][:experience][i],
+          :wage=>params[:job][:wage][i],
+      )
+      job.save
+    end
+
+    redirect_to :back
+  end
+
 
   # POST /companies
   # POST /companies.json
@@ -36,6 +65,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
