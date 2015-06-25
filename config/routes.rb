@@ -12,7 +12,11 @@ Rails.application.routes.draw do
       post 'create_education'
     end
   end
-  resources :jobs
+  resources :jobs do
+    collection do
+      get 'new_job'
+    end
+  end
   resources :articles
   resources :categories
 
