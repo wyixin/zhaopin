@@ -1,0 +1,14 @@
+<div class="sidebar col-10">
+  <% @categories.each do |category|%>
+      <%if category.id != 6%>
+          <div class="row">
+            <p class="col-48"><%= category.name %> <span class="pull-right">&gt;</span> </p>
+            <div class="col-48 sidebarContent">
+              <% category.sub_categories.each do |sub_category|%>
+                <a class="sidebarItem" href=""><%= sub_category.name %></a>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
