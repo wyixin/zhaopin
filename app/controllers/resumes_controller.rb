@@ -12,6 +12,9 @@ class ResumesController < ApplicationController
   # GET /resumes/1.json
 
   def display
+    if session[:step].blank?
+      session[:step] = 1
+    end
     @resume = Resume.where(:user_id=>current_user.id).first
     @resume_works = ResumeWork.where(:resume_id=>@resume.id)
     @resume_work = @resume_works.first
@@ -21,6 +24,7 @@ class ResumesController < ApplicationController
   def modify
     respond_to do |format|
       if @resume.update(resume_params)
+        session[:step] = 1
         format.html { redirect_to :back, notice: 'Resume was successfully updated.' }
         format.json { render :display, status: :created, location: @resume }
       else
@@ -35,6 +39,7 @@ class ResumesController < ApplicationController
     @resume_work.start_time = resume_work_params[1]
     respond_to do |format|
       if @resume_work.update(resume_work_params)
+        session[:step] = 2
         format.html { redirect_to :back, notice: 'ResumeWork was successfully updated.' }
         format.json { render :display, status: :updated, location: @resume_work }
       else
@@ -48,6 +53,7 @@ class ResumesController < ApplicationController
     @resume_education = ResumeEducation.find(params[:id])
     respond_to do |format|
       if @resume_education.update(resume_education_params)
+        session[:step] = 3
         format.html { redirect_to :back, notice: 'ResumeEducation was successfully updated.' }
         format.json { render :display, status: :updated, location: @resume_education }
       else
@@ -118,8 +124,6 @@ class ResumesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_params
       params.require(:resume).permit(
-          :status, :user_id, :resume_work_id,
-          :resume_education_id, :resume_attachment_id,
           :title, :fullname, :email, :phone, :sex,
           :birthday, :height, :marriage,
           :tag, :qq, :intention_jobs,

@@ -12,4 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require styles
  */
+#operate_info_div {
+    display:none;border:1px solid #a0a0a0;width:188px;float:right;background-color: #337ab7;
+}

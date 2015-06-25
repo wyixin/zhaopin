@@ -1,5 +1,27 @@
-<h1>My Resume</h1>
-
-<%= render 'form' %>
+<%#= render 'form' %>
 
 <%#= link_to 'Back', resumes_path %>
+
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoTabs">
+      <div class="row text-center">
+        <div class="col-6 item <%if session[:step].to_i==1%>active<% end %> resume_option_div" data-target="resume_form" style="cursor: pointer;">基本信息</div>
+        <div class="col-6 item <%if session[:step].to_i==2%>active<% end %> resume_option_div" data-target="resume_work_form" style="cursor: pointer;">工作经历</div>
+        <div class="col-6 item <%if session[:step].to_i==3%>active<% end %> resume_option_div" data-target="resume_education_form" style="cursor: pointer;">最高学历</div>
+      </div>
+    </div>
+    <div class="col-48 userInfoContent">
+      <div id="resume_form" class="resume_content_div" <%if session[:step].to_i==1%>style="display: block;"<%else%>style="display: none;"<% end %>>
+        <%= render 'resume_form'%>
+      </div>
+      <div id="resume_work_form" class="resume_content_div" <%if session[:step].to_i==2%>style="display: block;"<%else%>style="display: none;"<% end %>>
+        <%= render 'resume_work_form'%>
+      </div>
+      <div id="resume_education_form" class="resume_content_div" <%if session[:step].to_i==3%>style="display: block;"<%else%>style="display: none;"<% end %>>
+        <%= render 'resume_education_form'%>
+      </div>
+    </div>
+
+  </div>
+</div>
