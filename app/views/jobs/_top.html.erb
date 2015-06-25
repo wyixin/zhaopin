@@ -1,9 +1,19 @@
 <div class="jobItems">
   <% @hot_sub_categories.each do |sub_category|%>
       <div class="col-12 jobItem text-center">
-        <div class="<%=hot_category_class(sub_category.id)%>">
-          <%= sub_category.name %>
-        </div>
+          <%if params[:action]=='index'%>
+              <a href="/jobs?sub_category_id=<%=sub_category.id%>" class="sidebarItem">
+                <div class="<%=hot_category_class(sub_category.id)%>">
+                    <%=sub_category.name%>
+                </div>
+              </a>
+          <% else %>
+            <a href="/jobs/new_job?sub_category_id=<%=sub_category.id%>" class="sidebarItem">
+              <div class="<%=hot_category_class(sub_category.id)%>">
+                <%=sub_category.name%>
+              </div>
+            </a>
+          <% end %>
       </div>
   <% end %>
 </div>

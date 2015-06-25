@@ -4,10 +4,16 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.where(:recommend=>:y)
+    if params[:sub_category_id].present?
+      @jobs = @jobs.where(:sub_category_id=>params[:sub_category_id])
+    end
   end
 
   def new_job
     @jobs = Job.order('created_at desc')
+    if params[:sub_category_id].present?
+      @jobs = @jobs.where(:sub_category_id=>params[:sub_category_id])
+    end
     respond_to do |format|
       format.html { render :index }
       format.json
