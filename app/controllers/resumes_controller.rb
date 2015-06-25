@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :is_user?
-  before_action :set_resume, only: [:show, :edit, :update, :destroy, :modify]
+  before_action :set_resume, except: [:display]
 
   # GET /resumes
   # GET /resumes.json
@@ -15,6 +15,7 @@ class ResumesController < ApplicationController
     if session[:step].blank?
       session[:step] = 1
     end
+
     @resume = Resume.where(:user_id=>current_user.id).first
     @resume_works = ResumeWork.where(:resume_id=>@resume.id)
     @resume_work = @resume_works.first
@@ -35,18 +36,26 @@ class ResumesController < ApplicationController
   end
 
   def create_work
-    @resume_work = ResumeWork.find(params[:id])
-    @resume_work.start_time = resume_work_params[1]
-    respond_to do |format|
-      if @resume_work.update(resume_work_params)
-        session[:step] = 2
-        format.html { redirect_to :back, notice: 'ResumeWork was successfully updated.' }
-        format.json { render :display, status: :updated, location: @resume_work }
-      else
-        format.html { render :display }
-        format.json { render json: @resume_work.errors, status: :unprocessable_entity }
-      end
+    @resume.resume_works.destroy_all
+    resume_work_length = params[:resume_work][:company].length
+
+    (0..resume_work_length-1).each do |i|
+      start_time = "#{params[:resume_work]['start_time(1i)'][i]}-#{params[:resume_work]['start_time(2i)'][i]}-#{params[:resume_work]['start_time(3i)'][i]}"
+      end_time = "#{params[:resume_work]['end_time(1i)'][i]}-#{params[:resume_work]['end_time(2i)'][i]}-#{params[:resume_work]['end_time(3i)'][i]}"
+      resume_work = ResumeWork.new(
+          :resume_id=>@resume.id,
+          :company=>params[:resume_work][:company][i],
+          :job=>params[:resume_work][:job][i],
+          :wage=>params[:resume_work][:wage][i],
+          :start_time=>start_time,
+          :end_time=>end_time,
+          :achievements=>params[:resume_work][:achievements][i]
+      )
+      resume_work.save
     end
+    session[:step] = 2
+
+    redirect_to :back
   end
 
   def create_education
@@ -135,7 +144,7 @@ class ResumesController < ApplicationController
 
     def resume_work_params
       params.require(:resume_work).permit(
-          :company, :job, :wage,
+          :id, :company, :job, :wage,
           :start_time, :end_time, :achievements
       )
     end

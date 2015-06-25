@@ -9,3 +9,7 @@ jQuery ->
     dataTarget = $(@).data("target")
     $(".resume_content_div").css("display", 'none')
     $("#"+dataTarget).css("display", 'block')
+
+  $("#add_resume_work_btn").click ->
+    newDiv = $(".resume_work_div:first").clone(true)
+    $(".resume_work_div:last").after(newDiv)
