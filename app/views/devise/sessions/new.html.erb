@@ -1,26 +1,59 @@
-<h2>Log in</h2>
+<h1>求职登录</h1>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :邮箱 %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">邮箱</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus">
+                </div>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :密码 %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password" type="password" name="user[password]" autocomplete="off"/>
+                </div>
+              </div>
+            </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :记住我 %>
+            <% if devise_mapping.rememberable? -%>
+                <div class="col-48 line">
+                  <div class="row">
+                    <div class="col-44">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :记住我 %>
+                    </div>
+                  </div>
+                </div>
+            <% end -%>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-44">
+                  <button class="btn-primary" type="submit" >注册</button>
+                  <%=link_to '返回首页', root_path, :style=>"color:#333333;" %>
+                  <%= render "/devise/shared/links" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "登录" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+

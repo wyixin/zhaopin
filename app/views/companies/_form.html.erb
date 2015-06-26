@@ -1,29 +1,62 @@
-<%= form_for(@company) do |f| %>
-  <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<div class="row">
+    <%= form_for(@company) do |f| %>
+      <% if @company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-      <% @company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @company.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">企业名称</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="company_name" type="text" name="company[name]"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">手机号码</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="company_phone" type="text" name="company[phone]"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">邮箱地址</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="company_email" type="text" name="company[email]"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-44">
+            <button class="btn-primary" type="submit" >保存</button>
+            <%=link_to '返回首页', root_path, :style=>"color:#333333;" %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+</div>

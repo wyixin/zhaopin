@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<h2>我要求职</h2>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">常用邮箱</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus">
+                </div>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :邮箱 %><br />
-    <%= f.email_field :email, autofocus: true %>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password" type="password" name="user[password]" autocomplete="off"/><em>(至少 8 位)</em>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">重复密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password_confirmation" type="password" name="user[password_confirmation]" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-44">
+                  <button class="btn-primary" type="submit" >注册</button>
+                  <%=link_to '返回首页', root_path, :style=>"color:#333333;" %>
+                  <%= render "/devise/shared/links" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :密码 %>
-    <% if @minimum_password_length %>
-    <em>(至少 <%= @minimum_password_length %> 位)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :重复密码 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "注册" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>

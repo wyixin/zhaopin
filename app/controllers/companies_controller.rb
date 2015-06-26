@@ -66,8 +66,8 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
 
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
+        format.html { redirect_to root_path, notice: '您的企业信息已经成功提交,请耐心等待.我们的客服会在24小时内联系您.' }
+        format.json
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
