@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     is_user?
 
     if !current_user.role.admin?
-      redirect_to :back
+      redirect_to :root
       return
     end
   end

@@ -1,31 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="main  container">
+  <%= render '/jobs/top' %>
+  <div class="row">
+    <%= render 'content'%>
+  </div>
 
-<h1>Listing Articles</h1>
+  <div class="pagination row">
+    <div class="col-16 pull-right text-right">
+      <a class="paginationItem prv" href="">上一页</a>
+      <a class="paginationItem active" href="">1</a>
+      <a class="paginationItem" href="">2</a>
+      <a class="paginationItem" href="">3</a>
+      <a class="paginationItem next" href="">下一页</a>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= article.category_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>

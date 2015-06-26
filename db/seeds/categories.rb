@@ -27,3 +27,10 @@ SubCategory.create(:category_id=>category.id, :name=>'电子商务')
 SubCategory.create(:category_id=>category.id, :name=>'工程管理')
 SubCategory.create(:category_id=>category.id, :name=>'人事')
 SubCategory.create(:category_id=>category.id, :name=>'策划')
+
+
+puts "init Article SubCategory ..."
+SubCategory.create(:name=>'就业动态')
+SubCategory.create(:name=>'面试技巧')
+SubCategory.create(:name=>'简历模板')
+SubCategory.create(:name=>'等等等等')

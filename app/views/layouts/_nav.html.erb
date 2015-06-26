@@ -5,14 +5,15 @@
         <div class="row">
           <% if current_user.role.customer?%>
               <%= link_to '企业管理', companies_path, :class=>"item" %>
-              <%#= link_to '就业培训',display_resumes_path, :class=>"item" %>
+              <%= link_to '就业培训管理',list_articles_path, :class=>"item" %>
           <% elsif current_user.role.admin? %>
-              <%= link_to '企业管理', companies_path, :class=>"item" %>
               <%= link_to '用户管理', users_path, :class=>"item" %>
+              <%= link_to '企业管理', companies_path, :class=>"item" %>
+              <%= link_to '就业培训管理',list_articles_path, :class=>"item" %>
           <% else %>
               <%= link_to '我的简历',display_resumes_path, :class=>"item active" %>
               <%= link_to '招聘信息', jobs_path, :class=>"item" %>
-              <%= link_to '就业培训',display_resumes_path, :class=>"item" %>
+              <%= link_to '就业培训',articles_path, :class=>"item" %>
           <% end %>
 
           <div id="login_user_info_div" class="pull-right userName">

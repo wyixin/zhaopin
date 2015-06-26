@@ -1,0 +1,73 @@
+<h2>新建客服</h2>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <%= form_for(@user, url: create_user_users_path) do |f| %>
+
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                  <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">常用邮箱</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_email" type="email" name="email" value="" autofocus="autofocus">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password" type="password" name="password" autocomplete="off"/><em>(至少 8 位)</em>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">重复密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password_confirmation" type="password" name="password_confirmation" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-44">
+                  <button class="btn-primary" type="submit" >保存</button>
+                  <%=link_to '返回列表', users_path, :style=>"color:#333333;" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

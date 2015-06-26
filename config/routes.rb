@@ -18,11 +18,15 @@ Rails.application.routes.draw do
       get 'new_job'
     end
   end
-  resources :articles
-  resources :categories
-  resources :users, only: [:index, :set_customer] do
+  resources :articles do
     collection do
-      get 'set_customer'
+      get 'list'
+    end
+  end
+  resources :categories
+  resources :users, only: [:index, :new] do
+    collection do
+      post 'create_user'
     end
   end
   devise_for :users, controllers: {

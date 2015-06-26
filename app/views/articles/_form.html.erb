@@ -1,29 +1,78 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div class="row">
+    <%= form_for(@article) do |f| %>
+      <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.label :"分类" %><br>
-    <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] } %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">标题</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="article_title" type="text" name="article[title]" value="<%=@article.title %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">内容</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <textarea id="article_text" type="text" name="article[text]" style="background-color: #ffffff;border:1px solid grey;"><%=@article.text %></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">分类</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <select id="article_sub_category_id" type="text" name="article[sub_category_id]">
+              <% @sub_categories.each do |sub_category|%>
+                <option value="<%=sub_category.id %>" <%if @article.sub_category_id==sub_category.id%>selected="selected"<% end %>><%=sub_category.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">来源</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="article_source" type="text" name="article[source]" value="<%=@article.source %>"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-44">
+            <button class="btn-primary" type="submit" >保存</button>
+            <%=link_to '返回列表', list_articles_path, :style=>"color:#333333;" %>
+          </div>
+        </div>
+      </div>
+
+
+    <% end %>
+</div>

@@ -1,15 +1,28 @@
 class ArticlesController < ApplicationController
+  before_action :is_user?
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_category
 
   # GET /articles
   # GET /articles.json
   def index
+
+    if params[:sub_category_id].blank?
+      params[:sub_category_id] = 10
+    end
+    @articles = Article.where(:sub_category_id=>params[:sub_category_id])
+  end
+
+
+
+  def list
     @articles = Article.all
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article.update_attribute(:click, @article.click.to_i+1)
   end
 
   # GET /articles/new
@@ -25,10 +38,10 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @article.click = 0
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to list_articles_path, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -42,7 +55,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to list_articles_path, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -56,7 +69,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to list_articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +82,11 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :text, :category_id)
+      params.require(:article).permit(:title, :text, :sub_category_id, :source)
+    end
+
+    def set_category
+      @hot_sub_categories = SubCategory.where(:category_id=>6)
+      @sub_categories = SubCategory.where(:category_id=>nil)
     end
 end

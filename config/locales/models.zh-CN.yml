@@ -7,6 +7,7 @@ zh-CN:
       resume_education: 最高学历
       company: 企业信息
       job: 职位信息
+      article: 就业培训
     attributes:
       resume:
         status: 状态
@@ -62,6 +63,10 @@ zh-CN:
         wage: 薪资
         start_time: 起止时间
         end_time: ''
+      article:
+        title: 标题
+        text: 内容
+        sub_category_id: 分类
 
   enumerize:
     user:

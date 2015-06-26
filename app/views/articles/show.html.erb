@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="main  container">
+  <%= render '/jobs/top' %>
+  <div class="row">
+    <div class="content col-offset-1 col-37">
+      <div class="row">
+            <center>
+              <h1><%= @article.title %></h1>
+                <p>
+                  来源：<%= @article.source %>&nbsp;
+                  时间：<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>&nbsp;
+                  阅读：<%= @article.click %>
+                </p>
+            </center>
+            <p>
+              <%= @article.text %>
+            </p>
+        </div>
+      </div>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @article.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+</div>
