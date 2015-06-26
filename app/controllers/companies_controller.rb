@@ -50,6 +50,9 @@ class CompaniesController < ApplicationController
           :education=>params[:job][:education][i],
           :experience=>params[:job][:experience][i],
           :wage=>params[:job][:wage][i],
+          :temptation=>params[:job][:temptation][i],
+          :duty=>params[:job][:duty][i],
+          :requirement=>params[:job][:requirement][i]
       )
       job.save
     end

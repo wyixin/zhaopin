@@ -1,0 +1,54 @@
+<div class="content col-offset-1 col-37">
+  <div class="row">
+    <div>
+      <span class="job_name">
+        <strong><%=@job.name %></strong>
+      </span>
+    </div>
+    <table style="border:none;" id="job_table">
+      <tr>
+        <td>
+          <span class="job_info"></span>
+          <span class="job_wage">￥<%=@job.wage %></span>
+          <span class="job_info"></span>
+          <%=@job.experience %>
+          <span class="job_info"></span>
+          <%=@job.education %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          职位诱惑: <%=@job.temptation %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          发布时间：<%=@job.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="col-48 contentHeader" style="border-top:1px solid #a0a0a0;">
+      <div class="row text-center">
+        <div class="col-6 item active" >
+          工作职责
+        </div>
+      </div>
+    </div>
+    <ul>
+        <%= duties(@job.duty_to_arr) %>
+    </ul>
+
+    <div class="col-48 contentHeader" style="border-top:1px solid #a0a0a0;">
+      <div class="row text-center">
+        <div class="col-6 item active" >
+          岗位要求
+        </div>
+      </div>
+    </div>
+    <ul>
+      <%= requirements(@job.requirement_to_arr) %>
+    </ul>
+
+  </div>
+</div>

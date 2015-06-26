@@ -154,4 +154,41 @@
       </div>
     </div>
   </div>
+
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">职位诱惑</label>
+      </div>
+      <div class="col-44">
+        <input id="job_temptation" type="text" name="job[temptation][]" value="<%=@job.temptation %>" placeholder="如: 气氛自由，空间充足，发展前景好，年度旅游"/>
+        <i>之间使用逗号隔开</i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">工作职责</label>
+      </div>
+      <div class="col-44">
+        <textarea name="job[duty][]" style="background-color: #ffffff;border:1px solid grey;"><%=@job.duty %></textarea>
+        <i>之间使用英文逗号隔开</i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">岗位要求</label>
+      </div>
+      <div class="col-44">
+        <textarea name="job[requirement][]" style="background-color: #ffffff;border:1px solid grey;"><%=@job.requirement %></textarea>
+        <i>之间使用英文逗号隔开</i>
+      </div>
+    </div>
+  </div>
 </div>

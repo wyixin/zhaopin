@@ -20,9 +20,15 @@ class JobsController < ApplicationController
     end
   end
 
+  def show
+    @job = Job.find(params[:id])
+  end
+
+
   def set_category
     @categories = Category.all
     @hot_sub_categories = SubCategory.where(:category_id=>6)
   end
+
 
 end

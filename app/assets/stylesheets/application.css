@@ -23,3 +23,12 @@
     position: absolute;
     z-index: 9999;
 }
+i{
+    color: #FF4D00;
+}
+em{
+    color: #FF4D00;
+}
+ul{
+    list-style: none;
+}
