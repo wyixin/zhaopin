@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   end
   resources :articles
   resources :categories
-
+  resources :users, only: [:index, :set_customer] do
+    collection do
+      get 'set_customer'
+    end
+  end
   devise_for :users, controllers: {
     :sessions => 'users/sessions',
     :registrations => 'users/registrations'

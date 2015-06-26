@@ -1,0 +1,47 @@
+<h1>用户管理</h1>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <table id="user_table">
+          <thead>
+          <tr>
+            <th>邮箱</th>
+            <th>注册时间</th>
+            <th>最后登录时间</th>
+            <th>角色</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% if @users.present? %>
+              <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.email %></td>
+                    <td><%= user.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                    <td><%= user.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                    <td><%= user.role.text %></td>
+                    <td>
+                      <% if !user.role.admin?%>
+                        <% if user.role.customer?%>
+                            <%= link_to '取消客服', set_customer_users_path(:id=>user.id),:style=>"color:red;" %>
+                        <% else %>
+                            <%= link_to '设为客服', set_customer_users_path(:id=>user.id),:style=>"color:green;" %>
+                        <% end %>
+                      <% end %>
+                      <%#= link_to '查看', company %>
+                    </td>
+                  </tr>
+              <% end %>
+          <% else %>
+            <tr>
+              <td colspan="5">暂无数据.</td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

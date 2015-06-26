@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
         when 'customer'
           redirect_to :companies
         when 'admin'
+          redirect_to :users
         else
           redirect_to :display_resumes
       end
