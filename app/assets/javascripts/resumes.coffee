@@ -17,10 +17,11 @@ jQuery ->
 
   $("#resume_work_btn").click ->
     resume_work_companies = $("input[name='resume_work[company][]']")
+    is_sub = true
     resume_work_companies.each (index,fee)->
       if $(this).val()==""
         alert "公司名称不能为空"
         $(this).focus()
-        return false
-
-    $("#resume_work_form").submit()
+        is_sub = false
+    if is_sub
+      $("#resume_work_form").submit()
