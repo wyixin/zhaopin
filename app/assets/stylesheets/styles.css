@@ -1095,14 +1095,14 @@ body {
   background-color: #f4f4f4;
 }
 a {
-  color: #333333;
+  color: #ffffff;
 }
 a:hover {
-  color: #333333;
+  color: #ffffff;
   text-decoration: none;
 }
 a:focus {
-  color: #333333;
+  color: #ffffff;
   outline: none;
   text-decoration: none;
 }

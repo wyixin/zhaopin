@@ -1,39 +1,70 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>修改信息</h2>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">邮箱</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus">
+                </div>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :邮箱 %><br />
-    <%= f.email_field :email, autofocus: true %>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password" type="password" name="user[password]" autocomplete="off"/><i>(不修改请置空)</i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">重复密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_password_confirmation" type="password" name="user[password_confirmation]" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">现在的密码</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="user_current_password" type="password" name="user[current_password]" autocomplete="off"><i>(我们需要您现在的密码确认操作)</i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-44">
+                  <button class="btn-primary" type="submit" >保存</button>
+                  <%= link_to "返回", :back, :style=>"color:#333333;" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :密码 %> <i>(不修改请置空)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :重复密码 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :现在的密码 %> <i>(我们需要您现在的密码确认操作)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<h3>销毁账户</h3>
-
-<p>Unhappy? <%= button_to "销毁账户", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "返回", :back %>
+</div>
