@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for @resume,:url => modify_resumes_path(:id=>@resume.id), :html=>{:method=>'post'} do |f| %>
+  <%= form_for @resume,:url => modify_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :id=>"resume_form"} do |f| %>
       <input type="hidden" name="o" value="1"/>
       <% if @resume.errors.any? %>
           <div id="error_explanation">

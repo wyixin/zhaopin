@@ -1,5 +1,5 @@
 <div class="row">
-    <%= form_for @resume_work,:url => create_work_resumes_path(:id=>@resume.id), :html=>{:method=>'post'} do |f| %>
+    <%= form_for @resume_work,:url => create_work_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :id=>"resume_work_form"} do |f| %>
       <input type="hidden" name="o" value="2"/>
       <% if @resume_work.errors.any? %>
         <div id="error_explanation">
@@ -113,7 +113,7 @@
         <div class="row">
           <div class="col-4"></div>
           <div class="col-44">
-            <button class="btn-primary" type="submit" >保存</button>
+            <button class="btn-primary" type="button" id="resume_work_btn" >保存</button>
             <button class="btn-primary" type="button" id="add_resume_work_btn">增加工作经历</button>
             <!--<button class="btn-default" type="button">取消</button>-->
           </div>
