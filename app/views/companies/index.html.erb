@@ -1,37 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>企业用户管理</h1>
+<h1>企业管理</h1>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <table>
+          <thead>
+          <tr>
+            <th>公司名称</th>
+            <th>手机号码</th>
+            <th>常用邮箱</th>
+            <th>官网</th>
+            <th>Logo</th>
+            <th>联系人</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>公司名称</th>
-      <th>手机号码</th>
-      <th>常用邮箱</th>
-      <th>官网</th>
-      <th>Logo</th>
-      <th>联系人</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= company.phone %></td>
-        <td><%= company.email %></td>
-        <td><%= company.web_site %></td>
-        <td><%= company.logo %></td>
-        <td><%= company.contact %></td>
-        <td><%= link_to '查看', company %></td>
-        <td><%= link_to '编辑', edit_company_path(company) %></td>
-        <td><%= link_to '删除', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Company', new_company_path %>
+          <tbody>
+          <% @companies.each do |company| %>
+              <tr>
+                <td><%= company.name %></td>
+                <td><%= company.phone %></td>
+                <td><%= company.email %></td>
+                <td><%= company.web_site %></td>
+                <td><%= company.logo %></td>
+                <td><%= company.contact %></td>
+                <td><%= link_to '查看', company %></td>
+                <td><%= link_to '编辑', edit_company_path(company) %></td>
+                <td><%= link_to '删除', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

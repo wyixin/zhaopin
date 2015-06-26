@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<link rel="icon" href="<%#= root_url %>favicon.ico" />-->
+    <title><%= @title %> :: 维鼎猎聘网</title>
+
+    <%= stylesheet_link_tag "error" %>
+  </head>
+
+  <body>
+    <%= content_tag :div, class: @error_class do %>
+      <%= link_to '', root_url, class: 'error_backbtn', :style=>"color:#333333;" %>
+    <% end %>
+  </body>
+</html>
