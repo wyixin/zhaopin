@@ -3,10 +3,11 @@
     <div class="row">
       <div class="col-offset-8 col-40">
         <div class="row">
-          <% if !current_user.role.user?%>
-              <%= link_to '用户管理', companies_path, :class=>"item" %>
+          <% if current_user.role.customer?%>
               <%= link_to '企业管理', companies_path, :class=>"item" %>
               <%#= link_to '就业培训',display_resumes_path, :class=>"item" %>
+          <% elsif current_user.role.admin? %>
+              <%= link_to '用户管理', companies_path, :class=>"item" %>
           <% else %>
               <%= link_to '我的简历',display_resumes_path, :class=>"item" %>
               <%= link_to '招聘信息', jobs_path, :class=>"item" %>

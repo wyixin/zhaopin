@@ -11,9 +11,6 @@ class JobsController < ApplicationController
 
   def new_job
     @jobs = Job.order('created_at desc')
-    if params[:job_name].present?
-      @jobs = @jobs.where("name like '%#{params[:job_name]}%'")
-    end
     if params[:sub_category_id].present?
       @jobs = @jobs.where(:sub_category_id=>params[:sub_category_id])
     end
