@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>企业管理</h1>
 <div class="userInfoContent container">
   <div class="row">
@@ -30,8 +28,10 @@
                     <td><%= company.contact %></td>
                     <td>
                       <%= link_to '查看', company %>
-                      <%= link_to '编辑', edit_company_path(company) %>
-                      <%= link_to '删除', company, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% if current_user.role.customer?%>
+                          <%= link_to '编辑', edit_company_path(company) %>
+                          <%= link_to '删除', company, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
                     </td>
                   </tr>
               <% end %>
