@@ -11,12 +11,14 @@ class ArticlesController < ApplicationController
       params[:sub_category_id] = 10
     end
     @articles = Article.where(:sub_category_id=>params[:sub_category_id])
+
+    @articles = @articles.page(params[:page])
   end
 
 
 
   def list
-    @articles = Article.all
+    @articles = Article.page(params[:page])
   end
 
   # GET /articles/1

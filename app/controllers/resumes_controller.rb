@@ -78,7 +78,7 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.all
+    @resumes = Resume.page(params[:page])
   end
   # # GET /resumes/1/edit
   # def edit
