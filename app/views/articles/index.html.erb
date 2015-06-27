@@ -4,15 +4,7 @@
     <%= render 'content'%>
   </div>
 
-  <div class="pagination row">
-    <div class="col-16 pull-right text-right">
-      <a class="paginationItem prv" href="">上一页</a>
-      <a class="paginationItem active" href="">1</a>
-      <a class="paginationItem" href="">2</a>
-      <a class="paginationItem" href="">3</a>
-      <a class="paginationItem next" href="">下一页</a>
-    </div>
-  </div>
+  <%= paginate @articles %>
 
 </div>
 

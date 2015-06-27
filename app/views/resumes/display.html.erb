@@ -1,7 +1,9 @@
 <%#= render 'form' %>
 
 <%#= link_to 'Back', resumes_path %>
-
+<% if params[:resume_id].present?%>
+    <h1>简历管理-编辑</h1>
+<% end %>
 <div class="userInfoContent container">
   <div class="row">
     <div class="col-48 userInfoTabs">

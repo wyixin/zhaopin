@@ -7,6 +7,8 @@ class JobsController < ApplicationController
     if params[:sub_category_id].present?
       @jobs = @jobs.where(:sub_category_id=>params[:sub_category_id])
     end
+
+    @jobs = @jobs.page(params[:page])
   end
 
   def new_job
@@ -14,6 +16,9 @@ class JobsController < ApplicationController
     if params[:sub_category_id].present?
       @jobs = @jobs.where(:sub_category_id=>params[:sub_category_id])
     end
+
+    @jobs = @jobs.page(params[:page])
+
     respond_to do |format|
       format.html { render :index }
       format.json

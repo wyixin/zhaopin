@@ -1,49 +1,54 @@
-<p id="notice"><%= notice %></p>
+<h1>企业管理-查看</h1>
+<div class="userInfoContent container">
+  <div class="row">
+    <div class="col-48 userInfoContent">
+      <div class="row">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+        <p>
+          <strong>姓名:</strong>
+          <%= @company.name %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
+        <p>
+          <strong>地址:</strong>
+          <%= @company.address %>
+        </p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @company.contact %>
-</p>
+        <p>
+          <strong>联系人:</strong>
+          <%= @company.contact %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @company.phone %>
-</p>
+        <p>
+          <strong>手机号码:</strong>
+          <%= @company.phone %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
+        <p>
+          <strong>邮箱:</strong>
+          <%= @company.email %>
+        </p>
 
-<p>
-  <strong>Web site:</strong>
-  <%= @company.web_site %>
-</p>
+        <p>
+          <strong>官网:</strong>
+          <%= @company.web_site %>
+        </p>
 
-<p>
-  <strong>Logo:</strong>
-  <%= @company.logo %>
-</p>
+        <p>
+          <strong>Logo:</strong>
+          <%= @company.logo %>
+        </p>
 
-<p>
-  <strong>Logo audit:</strong>
-  <%= @company.logo_audit %>
-</p>
-
-<p>
-  <strong>Contents:</strong>
-  <%= @company.contents %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+        <p>
+          <strong>企业简介:</strong>
+          <%= @company.contents %>
+        </p>
+        <% if current_user.role.customer?%>
+            <%= link_to '编辑', edit_company_path(@company), :style=>"color:#333333;" %> |
+        <% end %>
+        <%= link_to '返回列表', companies_path, :style=>"color:#333333;" %>
+      </div>
+    </div>
+  </div>
+</div>

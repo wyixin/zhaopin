@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       get 'edit_job'
     end
   end
-  resources :resumes, only: [:create_work, :display, :modify, :create_education] do
+  resources :resumes, only: [:create_work, :display, :modify, :create_education, :index] do
     collection do
       post 'create_work'
       get 'display'

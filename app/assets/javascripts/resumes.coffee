@@ -24,4 +24,4 @@ jQuery ->
         $(this).focus()
         is_sub = false
     if is_sub
-      $("#resume_work_form").submit()
+      $("#resumeWorkForm").submit()

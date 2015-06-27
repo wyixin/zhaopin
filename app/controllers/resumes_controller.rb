@@ -1,12 +1,6 @@
 class ResumesController < ApplicationController
   before_action :is_user?
-  before_action :set_resume, except: [:display]
-
-  # GET /resumes
-  # GET /resumes.json
-  # def index
-  #   @resumes = Resume.all
-  # end
+  before_action :set_resume, except: [:display, :index]
 
   # GET /resumes/1
   # GET /resumes/1.json
@@ -15,11 +9,19 @@ class ResumesController < ApplicationController
     if session[:step].blank?
       session[:step] = 1
     end
+    @resume = Resume.new
+    @resume_education = ResumeEducation.new
+    if params[:resume_id].present?
+      @resume = Resume.find(params[:resume_id])
+      @resume_education = ResumeEducation.where(:user_id=>@resume.user_id).first
+    else
+      @resume = Resume.where(:user_id=>current_user.id).first
+      @resume_education = ResumeEducation.where(:user_id=>current_user.id).first
+    end
 
-    @resume = Resume.where(:user_id=>current_user.id).first
     @resume_works = ResumeWork.where(:resume_id=>@resume.id)
     @resume_work = @resume_works.first
-    @resume_education = ResumeEducation.where(:user_id=>current_user.id).first
+
   end
 
   def modify
@@ -71,6 +73,36 @@ class ResumesController < ApplicationController
       end
     end
   end
+
+
+  # GET /resumes
+  # GET /resumes.json
+  def index
+    @resumes = Resume.page(params[:page])
+  end
+  # # GET /resumes/1/edit
+  # def edit
+  #   @resume_works = ResumeWork.where(:resume_id=>@resume.id)
+  #   @resume_work = @resume_works.first
+  # end
+  #
+  #
+  # PATCH/PUT /resumes/1
+  # PATCH/PUT /resumes/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @resume.update(resume_params)
+  #       format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @resume }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @resume.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+
+
   # # GET /resumes/new
   # def new
   #   #current_user.init_resume
@@ -78,11 +110,6 @@ class ResumesController < ApplicationController
   #   @resume_work = ResumeWork.new
   # end
   #
-  # # GET /resumes/1/edit
-  # def edit
-  #   @resume_works = ResumeWork.where(:resume_id=>@resume.id)
-  #   @resume_work = @resume_works.first
-  # end
 
   # POST /resumes
   # POST /resumes.json
@@ -95,20 +122,6 @@ class ResumesController < ApplicationController
   #       format.json { render :show, status: :created, location: @resume }
   #     else
   #       format.html { render :new }
-  #       format.json { render json: @resume.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # PATCH/PUT /resumes/1
-  # PATCH/PUT /resumes/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @resume.update(resume_params)
-  #       format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @resume }
-  #     else
-  #       format.html { render :edit }
   #       format.json { render json: @resume.errors, status: :unprocessable_entity }
   #     end
   #   end
