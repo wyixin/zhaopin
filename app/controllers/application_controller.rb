@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
   def uploadFile(file)
     if !file.original_filename.empty?
       @filename = getFileName(file.original_filename)
+
+      if !File.exist?("#{Rails.root.to_s}/public/upload")
+        Dir.mkdir("#{Rails.root.to_s}/public/upload")
+      end
       File.open("#{Rails.root.to_s}/public/upload/#{@filename}", "wb") do |f|
         f.write(file.read)
       end
