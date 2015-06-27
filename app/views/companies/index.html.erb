@@ -24,7 +24,13 @@
                     <td><%= company.phone %></td>
                     <td><%= company.email %></td>
                     <td><%= company.web_site %></td>
-                    <td><%= company.logo %></td>
+                    <td>
+                      <% if company.logo.present?%>
+                          <%= image_tag "/upload/#{company.logo}", size: '50x50'%>
+                      <% else %>
+                          --
+                      <% end %>
+                    </td>
                     <td><%= company.contact %></td>
                     <td>
                       <%= link_to '查看', company %>

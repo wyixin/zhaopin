@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for @resume,:url => modify_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :id=>"resume_form"} do |f| %>
+  <%= form_for @resume,:url => modify_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :multipart => true, :id=>"resume_form"} do |f| %>
       <input type="hidden" name="o" value="1"/>
       <% if @resume.errors.any? %>
           <div id="error_explanation">
@@ -12,6 +12,21 @@
             </ul>
           </div>
       <% end %>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">照片</label>
+          </div>
+          <div class="col-44">
+            <% if @resume.photo_img.present?%>
+                <%= image_tag "/upload/#{@resume.photo_img}", size: '50x50'%>
+            <% end %>
+            <%=file_field 'resume','photo_img' %>
+          </div>
+        </div>
+      </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">

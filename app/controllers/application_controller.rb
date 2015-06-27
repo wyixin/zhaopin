@@ -28,6 +28,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def uploadFile(file)
+    if !file.original_filename.empty?
+      @filename = getFileName(file.original_filename)
+      File.open("#{Rails.root.to_s}/public/upload/#{@filename}", "wb") do |f|
+        f.write(file.read)
+      end
+      @filename
+    end
+  end
+
+  def getFileName(filename)
+    if !filename.nil?
+      filename.sub(/.*./, Digest::MD5.hexdigest(Time.now().to_s))
+    end
+  end
 
 
   # 错误捕获，在开发环境下不生效

@@ -26,6 +26,11 @@ class ResumesController < ApplicationController
 
   def modify
     respond_to do |format|
+
+      if params[:resume][:photo_img].present?
+        params[:resume][:photo_img] = uploadFile(params[:resume][:photo_img])
+      end
+
       if @resume.update(resume_params)
         session[:step] = 1
         format.html { redirect_to :back, notice: 'Resume was successfully updated.' }
