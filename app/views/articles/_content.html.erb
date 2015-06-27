@@ -27,7 +27,7 @@
                       <span class="time pull-right"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%> 阅读(<%= article.click %>)</span>
                     </div>
                     <div class="col-48 ins">
-                      <%= article.text %>
+                      <%= article.text.html_safe %>
                     </div>
                   </div>
                 </div>
