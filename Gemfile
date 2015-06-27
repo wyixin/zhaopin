@@ -37,7 +37,6 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'enumerize'
 gem 'kaminari'
-gem 'pry'
 
 
 gem 'simditor-rails'
