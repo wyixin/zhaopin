@@ -1316,7 +1316,7 @@ table tr td {
   line-height: 45px;
   transition: background-color 0.3s;
 }
-.nav .item:hover {
+.nav .active, .nav .item:hover {
   background-color: #217fe2;
 }
 .nav .userName {

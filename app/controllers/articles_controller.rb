@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-
     if params[:sub_category_id].blank?
       params[:sub_category_id] = 10
     end

@@ -38,6 +38,7 @@ gem 'rails-i18n'
 gem 'enumerize'
 gem 'kaminari'
 gem 'simditor-rails'
+gem 'active_link_to'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

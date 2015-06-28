@@ -23,12 +23,14 @@ Rails.application.routes.draw do
       get 'list'
     end
   end
+
   resources :categories
   resources :users, only: [:index, :new] do
     collection do
       post 'create_user'
     end
   end
+  
   devise_for :users, controllers: {
     :sessions => 'users/sessions',
     :registrations => 'users/registrations'
