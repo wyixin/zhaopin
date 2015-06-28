@@ -27,8 +27,12 @@
                       <span class="time pull-right"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%> 阅读(<%= article.click %>)</span>
                     </div>
                     <div class="col-48 ins">
-                        <%= article.text.html_safe[0, 70] %>
-                        <%= link_to "[详情]", article_path(article), :style=>"color:#1866b8;"%>
+                        <%if article.text.html_safe.length >= 70%>
+                            <%= article.text.html_safe[0, 70] %>
+                            <%= link_to "[详情]", article_path(article), :style=>"color:#1866b8;"%>
+                        <% else %>
+                            <%= article.text.html_safe%>
+                        <% end %>
                     </div>
                   </div>
                 </div>
