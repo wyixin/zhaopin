@@ -37,7 +37,11 @@
 
         <p>
           <strong>Logo:</strong>
-          <%= @company.logo %>
+          <% if @company.logo.present?%>
+              <%= image_tag "/upload/#{@company.logo}", size: '50x50'%>
+          <% else %>
+              --
+          <% end %>
         </p>
 
         <p>

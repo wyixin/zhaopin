@@ -5,6 +5,14 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
 
+  # GET /resumes
+  # GET /resumes.json
+  def index
+    @resumes = Resume.page(params[:page])
+  end
+
+
+
   def display
     if session[:step].blank?
       session[:step] = 1
@@ -26,6 +34,11 @@ class ResumesController < ApplicationController
 
   def modify
     respond_to do |format|
+
+      if params[:resume][:photo_img].present?
+        params[:resume][:photo_img] = uploadFile(params[:resume][:photo_img])
+      end
+
       if @resume.update(resume_params)
         session[:step] = 1
         format.html { redirect_to :back, notice: 'Resume was successfully updated.' }
@@ -75,11 +88,6 @@ class ResumesController < ApplicationController
   end
 
 
-  # GET /resumes
-  # GET /resumes.json
-  def index
-    @resumes = Resume.page(params[:page])
-  end
   # # GET /resumes/1/edit
   # def edit
   #   @resume_works = ResumeWork.where(:resume_id=>@resume.id)
@@ -138,6 +146,12 @@ class ResumesController < ApplicationController
   # end
 
   private
+    def create_user(email)
+      User.create(email: email,
+                  password: '11111111',
+                  password_confirmation: '11111111',
+                  role: :user)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_resume
       @resume = Resume.find(params[:id])

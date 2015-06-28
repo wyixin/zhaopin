@@ -6,6 +6,7 @@
         <table id="resume_table">
           <thead>
             <tr>
+              <th>照片</th>
               <th>所属用户</th>
               <th>简历名称</th>
               <th>真实姓名</th>
@@ -22,6 +23,13 @@
           <tbody>
             <% @resumes.each do |resume| %>
               <tr>
+                <td>
+                  <% if resume.photo_img.present?%>
+                    <%= image_tag "/upload/#{resume.photo_img}", size: '50x50'%>
+                  <% else %>
+                    --
+                  <% end %>
+                </td>
                 <td><%= resume.user.email %></td>
                 <td><%= resume.title %></td>
                 <td><%= resume.fullname %></td>

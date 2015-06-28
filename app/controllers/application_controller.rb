@@ -29,7 +29,36 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def uploadFile(file)
+    if !file.original_filename.empty?
+      @filename = getFileName(file.original_filename)
 
+      if !File.exist?("#{Rails.root.to_s}/public/upload")
+        Dir.mkdir("#{Rails.root.to_s}/public/upload")
+      end
+      File.open("#{Rails.root.to_s}/public/upload/#{@filename}", "wb") do |f|
+        f.write(file.read)
+      end
+      @filename
+    end
+  end
+
+  def getFileName(filename)
+    if !filename.nil?
+      filename.sub(/.*./, Digest::MD5.hexdigest(Time.now().to_s))
+    end
+  end
+
+  def login_redirect
+    case current_user.role
+      when 'customer'
+        redirect_to :companies
+      when 'admin'
+        redirect_to :users
+      else
+        redirect_to :display_resumes
+    end
+  end
 
   # 错误捕获，在开发环境下不生效
   def self.rescue_errors

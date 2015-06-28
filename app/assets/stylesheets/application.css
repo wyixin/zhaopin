@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require styles
+ *= require simditor
  */
 #operate_info_div {
     display:none;
