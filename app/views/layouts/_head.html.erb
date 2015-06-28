@@ -11,10 +11,13 @@
           <button class="col-48 btn-primary">搜索</button>
         </div>
     </form>-->
+    
     <% if current_user.role.user? %>
-    <div class="col-6 pull-right">
-        <%= link_to '发布简历', display_resumes_path, :class=>"col-48 btn-default"%>
-    </div>
+      <div class="col-6 pull-right">
+        <button class="col-48 btn-default">
+          <%= link_to '发布简历', display_resumes_path%>
+        </button>            
+      </div>
     <% end %>
   </div>
 </div>
