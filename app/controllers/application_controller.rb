@@ -1,3 +1,4 @@
+# coding: utf-8
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -34,11 +35,11 @@ class ApplicationController < ActionController::Base
   def self.rescue_errors
     rescue_from Exception,                            :with => :render_error
     rescue_from RuntimeError,                         :with => :render_error
-    rescue_from CanCan::AccessDenied,                 :with => :render_access_denied
-    rescue_from ActiveRecord::RecordNotFound,         :with => :render_not_found
-    rescue_from ActionController::RoutingError,       :with => :render_not_found
-    rescue_from ActionController::UnknownController,  :with => :render_not_found
-    rescue_from ActionController::UnknownAction,      :with => :render_not_found
+#    rescue_from CanCan::AccessDenied,                 :with => :render_access_denied
+#    rescue_from ActiveRecord::RecordNotFound,         :with => :render_not_found
+#    rescue_from ActionController::RoutingError,       :with => :render_not_found
+#    rescue_from ActionController::UnknownController,  :with => :render_not_found
+#    rescue_from ActionController::UnknownAction,      :with => :render_not_found
   end
   rescue_errors unless Rails.env.development?
 
