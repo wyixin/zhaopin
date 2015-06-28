@@ -1,0 +1,79 @@
+body.fullBackGroundBody{
+/* 加载背景图 */
+background-image: url(../images/background-photo.jpg);
+
+/* 背景图垂直、水平均居中 */
+background-position: center center;
+
+/* 背景图不平铺 */
+background-repeat: no-repeat;
+
+/* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+background-attachment: fixed;
+
+/* 让背景图基于容器大小伸缩 */
+background-size: cover;
+  .loginWrapper{
+    height: 460px;
+    width: 740px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -325px; /*减掉footrer的高度*/
+    bottom: 0;
+    margin: auto;
+    .loginBoxBackgroundColor{
+      height: 100%;
+      width: 100%;
+      background-color: #fff;
+      opacity: 0.7;
+    }
+    .loginContentBox{
+      height: 100%;
+      width: 100%;
+      padding: 1em;
+      opacity: 0.8;
+      position: relative;
+      top: -100%;
+      .loginContent{
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        padding: 5em 0;
+        color: @fcPale;
+        .loginSideTab{
+          padding: .5em;
+          margin-bottom: 1.5em;
+          text-align: center;
+          background-color: rgb(160, 160, 160);
+          &.active{
+            color: #fff;
+            background-color: @BDC;
+          }
+        }
+        .loginTopTab{
+          display: inline-block;
+          padding: .5em 1em;
+          text-align: center;
+          border-bottom: 2px solid @fcPale;
+          &.active{
+            color: @BDC;
+            border-color: @BDC;
+          }
+        }
+        .line{
+           margin-bottom: 1.5em;
+        }
+        .loginContentBody{
+          a{
+            color: @fcPale;
+            display: inline-block;
+            height: @inputHeight;
+            line-height: @inputHeight;
+          }          
+        }
+      }
+    }
+  }
+}
+
