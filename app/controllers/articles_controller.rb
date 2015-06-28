@@ -9,12 +9,8 @@ class ArticlesController < ApplicationController
     if params[:sub_category_id].blank?
       params[:sub_category_id] = 10
     end
-    @articles = Article.where(:sub_category_id=>params[:sub_category_id])
-
-    @articles = @articles.page(params[:page])
+    @articles = Article.where(:sub_category_id=>params[:sub_category_id]).page params[:page]
   end
-
-
 
   def list
     @articles = Article.page(params[:page])
