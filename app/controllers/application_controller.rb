@@ -48,6 +48,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def login_redirect
+    case current_user.role
+      when 'customer'
+        redirect_to :companies
+      when 'admin'
+        redirect_to :users
+      else
+        redirect_to :display_resumes
+    end
+  end
 
   # 错误捕获，在开发环境下不生效
   def self.rescue_errors
