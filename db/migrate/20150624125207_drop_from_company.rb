@@ -1,3 +1,3 @@
 class DropFromCompany < ActiveRecord::Migration
-  ActiveRecord::Migration.drop_table(:companies)
+#  ActiveRecord::Migration.drop_table(:companies)
 end
