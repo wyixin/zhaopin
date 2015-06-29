@@ -12,7 +12,15 @@
             <%= render '/welcome/welcome_top'%>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= devise_error_messages! %>
+                <% if resource.errors.any? %>
+                    <div id="error_explanation" style="margin: 0px;">
+                      <ul style="margin: 0px;">
+                        <% resource.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
 
                 <div class="col-48 line">
                   <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus" placeholder="请输入邮箱" class="col-48">
