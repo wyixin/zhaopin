@@ -1,10 +1,17 @@
-<h1>我要招人</h1>
-<div class="userInfoContent container">
-  <div class="row">
-    <div class="col-48 userInfoContent">
-      <%= render 'form' %>
-      <%#= link_to 'Show', @company,:style=>'color:#333333' %>
+<div class="loginWrapper">
+  <div class="loginBoxBackgroundColor"></div>
+  <div class="loginContentBox">
+    <div class="loginContent">
+      <div class="row">
+
+        <%= render '/welcome/welcome_left' %>
+
+        <div class="col-22 col-offset-5 loginContentBody">
+          <div class="row">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

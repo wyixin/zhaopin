@@ -6,14 +6,12 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
-<body>
-<% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+<body <% if !user_signed_in? %>class="fullBackGroundBody"<% end %>>
+<div class="alert alert-success fade in flash-message" style="top: 10px;">
+  <button class="close" type="button">×</button>
+</div>
 <% if user_signed_in? %>
     <%= render '/layouts/head' %>
     <%= render '/layouts/nav' %>
@@ -22,5 +20,17 @@
 <% else %>
     <%= yield %>
 <% end %>
+<script>
+    <% if notice %>
+        $('.flash-message:last').show();
+        $('.flash-message:last').html("<%= notice %>");
+        $('.flash-message:last').delay(10000).fadeOut()
+    <% end %>
+    <% if alert %>
+        $('.flash-message:last').show();
+        $('.flash-message:last').html("<%= alert %>");
+        $('.flash-message:last').delay(10000).fadeOut()
+    <% end %>
+</script>
 </body>
 </html>

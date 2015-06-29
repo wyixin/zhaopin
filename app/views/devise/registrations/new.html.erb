@@ -1,63 +1,38 @@
-<h2>我要求职</h2>
-<div class="userInfoContent container">
-  <div class="row">
-    <div class="col-48 userInfoContent">
+<div class="loginWrapper">
+  <div class="loginBoxBackgroundColor"></div>
+  <div class="loginContentBox">
+    <div class="loginContent">
       <div class="row">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">常用邮箱</label>
-                  <span class="light">*</span>
-                </div>
-                <div class="col-44">
-                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus">
-                </div>
-              </div>
-            </div>
+        <%= render '/welcome/welcome_left' %>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">密码</label>
-                  <span class="light">*</span>
-                </div>
-                <div class="col-44">
-                  <input id="user_password" type="password" name="user[password]" autocomplete="off"/><em>(至少 8 位)</em>
-                </div>
-              </div>
-            </div>
+        <div class="col-22 col-offset-5 loginContentBody">
+          <div class="row">
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">重复密码</label>
-                  <span class="light">*</span>
-                </div>
-                <div class="col-44">
-                  <input id="user_password_confirmation" type="password" name="user[password_confirmation]" autocomplete="off">
-                </div>
-              </div>
-            </div>
+            <%= render '/welcome/welcome_top'%>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4"></div>
-                <div class="col-44">
-                  <button class="btn-primary" type="submit" >注册</button>
-                  <%=link_to '返回首页', root_path, :style=>"color:#333333;" %>
-                  <%= render "/devise/shared/links" %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+
+                <div class="col-48 line">
+                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus" placeholder="请输入邮箱" class="col-48">
                 </div>
-              </div>
-            </div>
-        <% end %>
+                <div class="col-48 line">
+                  <input id="user_password" type="password" name="user[password]" autocomplete="off" placeholder="请输入密码" class="col-48"/>
+                  <em>(至少 8 位)</em>
+                </div>
+                <div class="col-48 line">
+                  <input id="user_password_confirmation" type="password" name="user[password_confirmation]" autocomplete="off" placeholder="请输入重复密码" class="col-48"/>
+                  <em>(至少 8 位)</em>
+                </div>
+
+                <div class="col-48">
+                  <button class="btn-block btn-primary">注册</button>
+                </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-

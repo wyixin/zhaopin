@@ -1,0 +1,10 @@
+<div class="col-9 loginContentSidebar">
+  <div class="row">
+    <div class="loginSideTab <% if params[:controller]=='users/registrations' or params[:controller]=='users/sessions' or params[:controller]=='devise/passwords'%>active<%end%>">
+      <%= link_to "我要求职", new_user_registration_path  %>
+    </div>
+    <div class="loginSideTab <% if params[:controller]=='companies'%>active<%end%>">
+      <%= link_to "我要招人", new_company_path  %>
+    </div>
+  </div>
+</div>

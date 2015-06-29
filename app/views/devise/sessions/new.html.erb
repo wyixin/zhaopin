@@ -1,59 +1,40 @@
-<h1>求职登录</h1>
-<div class="userInfoContent container">
-  <div class="row">
-    <div class="col-48 userInfoContent">
+<div class="loginWrapper">
+  <div class="loginBoxBackgroundColor"></div>
+  <div class="loginContentBox">
+    <div class="loginContent">
       <div class="row">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">邮箱</label>
-                  <span class="light">*</span>
-                </div>
-                <div class="col-44">
-                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus">
-                </div>
-              </div>
-            </div>
+        <%= render '/welcome/welcome_left' %>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">密码</label>
-                  <span class="light">*</span>
-                </div>
-                <div class="col-44">
-                  <input id="user_password" type="password" name="user[password]" autocomplete="off"/>
-                </div>
-              </div>
-            </div>
+        <div class="col-22 col-offset-5 loginContentBody">
+          <div class="row">
 
-            <% if devise_mapping.rememberable? -%>
+            <%= render '/welcome/welcome_top'%>
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
                 <div class="col-48 line">
-                  <div class="row">
-                    <div class="col-44">
-                      <%= f.check_box :remember_me %>
-                      <%= f.label :记住我 %>
-                    </div>
-                  </div>
+                  <input id="user_email" type="email" name="user[email]" value="" autofocus="autofocus" placeholder="请输入邮箱" class="col-48">
                 </div>
-            <% end -%>
+                <div class="col-48 line">
+                  <input id="user_password" type="password" name="user[password]" autocomplete="off" placeholder="请输入密码" class="col-48"/>
+                </div>
 
-            <div class="col-48 line">
-              <div class="row">
-                <div class="col-4"></div>
-                <div class="col-44">
-                  <button class="btn-primary" type="submit" >登录</button>
-                  <%=link_to '返回首页', root_path, :style=>"color:#333333;" %>
-                  <%= render "/devise/shared/links" %>
+                <% if devise_mapping.rememberable? -%>
+                    <div class="col-48 line">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :记住密码 %>
+                      <%= link_to "忘记密码?", new_password_path(resource_name), :class=>"pull-right"  %>
+                    </div>
+                <% end -%>
+
+                <div class="col-48">
+                  <button class="btn-block btn-primary">登录</button>
                 </div>
-              </div>
-            </div>
-        <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-

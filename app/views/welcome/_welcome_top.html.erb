@@ -1,0 +1,15 @@
+<%
+   in_style = 'loginTopTab'
+   up_style = 'loginTopTab'
+   if params[:controller]=='users/sessions'
+     in_style = 'loginTopTab active'
+   elsif params[:controller]=='users/registrations'
+     up_style = 'loginTopTab active'
+   end
+%>
+<div class="col-48 line">
+  <div class="row">
+    <%= link_to "登录", new_user_session_path, :class => in_style  %>
+    <%= link_to "注册", new_user_registration_path, :class => up_style  %>
+  </div>
+</div>
