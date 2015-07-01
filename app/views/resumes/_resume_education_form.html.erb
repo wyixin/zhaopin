@@ -44,10 +44,17 @@
             <span class="light">*</span>
           </div>
           <div class="col-44">
-            <input id="resume_education_education" type="text" name="resume_education[education]" value="<%=@resume_education.education %>">
+            <select name="resume_education[education]" id="resume_education_education">
+              <% ResumeEducation.education.options.each do |education|%>
+                  <option value="<%=education.last %>" <%if @resume_education.education==education.last%>selected<%end%>>
+                    <%=education.first %>
+                  </option>
+              <% end %>
+            </select>
           </div>
         </div>
       </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">
@@ -96,6 +103,77 @@
         </div>
       </div>
 
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">所获奖励</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_education_reward" type="text" name="resume_education[reward]" value="<%=@resume_education.reward %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">在校经历</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_education_school_experience" type="text" name="resume_education[school_experience]" value="<%=@resume_education.school_experience %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">计算机能力</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_education_computer_ability" type="text" name="resume_education[computer_ability]" value="<%=@resume_education.computer_ability %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">语言能力</label>
+          </div>
+          <div class="col-44">
+            第一外语<input id="resume_education_foreign_language1" type="text" name="resume_education[foreign_language1]" value="<%=@resume_education.foreign_language1 %>" style="width: 100px;"/>
+            (听说能力<input id="resume_education_foreign_language1_ls" type="text" name="resume_education[foreign_language1_ls]" value="<%=@resume_education.foreign_language1_ls %>" style="width: 50px;"/>
+            读写能力<input id="resume_education_foreign_language1_rw" type="text" name="resume_education[foreign_language1_rw]" value="<%=@resume_education.foreign_language1_rw %>" style="width: 50px;"/>)
+            <br/>
+            第二外语<input id="resume_education_foreign_language2" type="text" name="resume_education[foreign_language2]" value="<%=@resume_education.foreign_language2 %>" style="width: 100px;"/>
+            (听说能力<input id="resume_education_foreign_language2_ls" type="text" name="resume_education[foreign_language2_ls]" value="<%=@resume_education.foreign_language2_ls %>" style="width: 50px;"/>
+            读写能力<input id="resume_education_foreign_language2_rw" type="text" name="resume_education[foreign_language2_rw]" value="<%=@resume_education.foreign_language2_rw %>" style="width: 50px;"/>)
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">普通话</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_education_mandarin" type="text" name="resume_education[mandarin]" value="<%=@resume_education.mandarin %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">其它技能</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_education_other_skills" type="text" name="resume_education[other_skills]" value="<%=@resume_education.other_skills %>"/>
+          </div>
+        </div>
+      </div>
 
       <div class="col-48 line">
         <div class="row">

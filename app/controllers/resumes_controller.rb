@@ -181,7 +181,12 @@ class ResumesController < ApplicationController
     def resume_education_params
       params.require(:resume_education).permit(
           :school, :speciality, :education,
-          :start_time, :end_time
+          :start_time, :end_time, :reward,
+          :school_experience, :computer_ability,
+          :foreign_language1, :foreign_language1_ls,
+          :foreign_language1_rw, :foreign_language2,
+          :foreign_language2_ls, :foreign_language2_rw,
+          :mandarin, :other_skills
       )
     end
 end

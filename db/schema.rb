@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701145052) do
+ActiveRecord::Schema.define(version: 20150701153121) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -75,14 +75,25 @@ ActiveRecord::Schema.define(version: 20150701145052) do
   end
 
   create_table "resume_educations", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "school",     limit: 255
-    t.string   "speciality", limit: 255
-    t.string   "education",  limit: 255
+    t.integer  "user_id",              limit: 4
+    t.string   "school",               limit: 255
+    t.string   "speciality",           limit: 255
+    t.string   "education",            limit: 255
     t.date     "start_time"
     t.date     "end_time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "reward",               limit: 255
+    t.string   "school_experience",    limit: 255
+    t.string   "computer_ability",     limit: 255
+    t.string   "foreign_language1",    limit: 255
+    t.string   "foreign_language1_ls", limit: 255
+    t.string   "foreign_language1_rw", limit: 255
+    t.string   "foreign_language2",    limit: 255
+    t.string   "foreign_language2_ls", limit: 255
+    t.string   "foreign_language2_rw", limit: 255
+    t.string   "mandarin",             limit: 255
+    t.string   "other_skills",         limit: 255
   end
 
   create_table "resume_works", force: :cascade do |t|

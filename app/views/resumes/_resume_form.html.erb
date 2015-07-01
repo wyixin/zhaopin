@@ -48,8 +48,6 @@
               <div class="col-8">
                 <input id="sex_male" type="radio" <%if @resume.sex=='male'%>checked="checked"<% end %> value="male" name="resume[sex]">
                 <label for="sex">男</label>
-              </div>
-              <div class="col-8">
                 <input id="sex_female" type="radio" <%if @resume.sex=='female'%>checked="checked"<% end %> value="female" name="resume[sex]">
                 <label for="sex">女</label>
               </div>
@@ -195,8 +193,6 @@
               <div class="col-8">
                 <input id="marriage_y" type="radio" <%if @resume.marriage=='y'%>checked="checked"<% end %> value="y" name="resume[marriage]">
                 <label for="sex">已婚</label>
-              </div>
-              <div class="col-8">
                 <input id="marriage_n" type="radio" <%if @resume.marriage=='n'%>checked="checked"<% end %> value="n" name="resume[marriage]">
                 <label for="sex">未婚</label>
               </div>
@@ -235,23 +231,11 @@
               <div class="col-8">
                 <input id="resume_driving_license_y" type="radio" <%if @resume.driving_license=='y'%>checked="checked"<% end %> value="y" name="resume[driving_license]">
                 <label for="sex">有</label>
-              </div>
-              <div class="col-8">
                 <input id="resume_driving_license_n" type="radio" <%if @resume.driving_license=='n'%>checked="checked"<% end %> value="n" name="resume[driving_license]">
                 <label for="sex">无</label>
+                <br/>驾龄<input id="resume_driving_age" type="text" name="resume[driving_age]" value="<%=@resume.driving_age %>" style="width:100px;"/>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-48 line">
-        <div class="row">
-          <div class="col-4">
-            <label for="">驾龄</label>
-          </div>
-          <div class="col-44">
-            <input id="resume_driving_age" type="text" name="resume[driving_age]" value="<%=@resume.driving_age %>" />
           </div>
         </div>
       </div>

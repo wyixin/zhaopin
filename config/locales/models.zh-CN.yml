@@ -103,3 +103,12 @@ zh-CN:
         party_member: 中共党员
         members: 共青团员
         masses: 群众
+    resume_education:
+      education:
+        primary: 小学
+        middle: 初中
+        high: 高中
+        junior_college: 大专
+        university: 本科
+        dr: 博士
+        master: 硕士
