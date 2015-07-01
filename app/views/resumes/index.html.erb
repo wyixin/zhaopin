@@ -29,7 +29,7 @@
                     --
                   <% end %>
                 </td>
-                <td><%= resume.user.email %></td>
+                <td><%= resume.user.email rescue '' %></td>
                 <td><%= resume.title %></td>
                 <td><%= resume.fullname %></td>
                 <td><%= resume.email %></td>

@@ -16,20 +16,6 @@
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">
-            <label for="">照片</label>
-          </div>
-          <div class="col-44">
-            <% if @resume.photo_img.present?%>
-                <%= image_tag "/upload/#{@resume.photo_img}", size: '50x50'%>
-            <% end %>
-            <%=file_field 'resume','photo_img' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-48 line">
-        <div class="row">
-          <div class="col-4">
             <label for="">简历名称</label>
             <span class="light">*</span>
           </div>
@@ -38,10 +24,11 @@
           </div>
         </div>
       </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">
-            <label for="">真实姓名</label>
+            <label for="">姓名</label>
             <span class="light">*</span>
           </div>
           <div class="col-44">
@@ -49,28 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="col-48 line">
-        <div class="row">
-          <div class="col-4">
-            <label for="">常用邮箱</label>
-            <span class="light">*</span>
-          </div>
-          <div class="col-44">
-            <input id="resume_email" type="text" name="resume[email]" value="<%=@resume.email %>">
-          </div>
-        </div>
-      </div>
-      <div class="col-48 line">
-        <div class="row">
-          <div class="col-4">
-            <label for="">手机号码</label>
-            <span class="light">*</span>
-          </div>
-          <div class="col-44">
-            <input id="resume_phone" type="text" name="resume[phone]" value="<%=@resume.phone %>">
-          </div>
-        </div>
-      </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">
@@ -91,6 +57,56 @@
           </div>
         </div>
       </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">照片</label>
+          </div>
+          <div class="col-44">
+            <% if @resume.photo_img.present?%>
+                <%= image_tag "/upload/#{@resume.photo_img}", size: '50x50'%>
+            <% end %>
+            <%=file_field 'resume','photo_img' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">手机号码</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="resume_phone" type="text" name="resume[phone]" value="<%=@resume.phone %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">常用邮箱</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <input id="resume_email" type="text" name="resume[email]" value="<%=@resume.email %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">QQ号码</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_qq" type="text" name="resume[qq]" value="<%=@resume.qq %>">
+          </div>
+        </div>
+      </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4">
@@ -106,7 +122,7 @@
               </select>
               <select name="resume[birthday(2i)]" id="resume_birthday_2i">
                 <% (1..12).each do |m|%>
-                <option value="<%=m %>" <%if month(@resume.birthday)==m%>selected<%end%>><%=m %></option>
+                    <option value="<%=m %>" <%if month(@resume.birthday)==m%>selected<%end%>><%=m %></option>
                 <% end %>
               </select>
               <select name="resume[birthday(3i)]" id="resume_birthday_3i">
@@ -119,6 +135,138 @@
           </div>
         </div>
       </div>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">学历</label>
+          </div>
+          <div class="col-44">
+            <div class="row">
+              <select name="resume[educational]" id="resume_educational">
+                <% Resume.educational.options.each do |educational|%>
+                    <option value="<%=educational.last %>" <%if @resume.educational==educational.last%>selected<%end%>>
+                      <%=educational.first %>
+                    </option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">籍贯</label>
+          </div>
+          <div class="col-44">
+            <div class="row">
+              <select name="resume[district]" id="resume_district">
+                <% Resume.districts.each do |district|%>
+                    <option value="<%=district %>" <%if @resume.district==district%>selected<%end%>>
+                      <%=district %>
+                    </option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">现居住地</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_address" type="text" name="resume[address]" value="<%=@resume.address %>" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">婚姻状况</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <div class="row">
+              <div class="col-8">
+                <input id="marriage_y" type="radio" <%if @resume.marriage=='y'%>checked="checked"<% end %> value="y" name="resume[marriage]">
+                <label for="sex">已婚</label>
+              </div>
+              <div class="col-8">
+                <input id="marriage_n" type="radio" <%if @resume.marriage=='n'%>checked="checked"<% end %> value="n" name="resume[marriage]">
+                <label for="sex">未婚</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">政治面貌</label>
+          </div>
+          <div class="col-44">
+            <div class="row">
+              <select name="resume[political_status]" id="resume_political_status">
+                <% Resume.political_status.options.each do |political|%>
+                    <option value="<%=political.last %>" <%if @resume.political_status==political.last%>selected<%end%>>
+                      <%=political.first %>
+                    </option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">汽车驾照</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <div class="row">
+              <div class="col-8">
+                <input id="resume_driving_license_y" type="radio" <%if @resume.driving_license=='y'%>checked="checked"<% end %> value="y" name="resume[driving_license]">
+                <label for="sex">有</label>
+              </div>
+              <div class="col-8">
+                <input id="resume_driving_license_n" type="radio" <%if @resume.driving_license=='n'%>checked="checked"<% end %> value="n" name="resume[driving_license]">
+                <label for="sex">无</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">驾龄</label>
+          </div>
+          <div class="col-44">
+            <input id="resume_driving_age" type="text" name="resume[driving_age]" value="<%=@resume.driving_age %>" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">个人评价</label>
+          </div>
+          <div class="col-44">
+            <textarea id="resume_evaluation" name="resume[evaluation]" style="background-color: #ffffff;border:1px solid grey;"><%=@resume.evaluation %></textarea>
+          </div>
+        </div>
+      </div>
+
       <div class="col-48 line">
         <div class="row">
           <div class="col-4"></div>

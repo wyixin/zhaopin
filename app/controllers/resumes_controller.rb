@@ -165,7 +165,9 @@ class ResumesController < ApplicationController
           :tag, :qq, :intention_jobs,
           :wage, :district, :photo_img,
           :photo_audit, :talent,
-          :complete_percent, :click, :tpl
+          :complete_percent, :click, :tpl,
+          :educational, :address, :political_status,
+          :driving_license, :driving_age, :evaluation
       )
     end
 

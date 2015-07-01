@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626055548) do
+ActiveRecord::Schema.define(version: 20150701145052) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 20150626055548) do
     t.string   "marriage",         limit: 255
     t.string   "tag",              limit: 255
     t.string   "qq",               limit: 255
-    t.string   "intention_jobs",   limit: 255
     t.string   "wage",             limit: 255
     t.string   "district",         limit: 255
     t.string   "photo_img",        limit: 255
@@ -119,8 +118,15 @@ ActiveRecord::Schema.define(version: 20150626055548) do
     t.string   "complete_percent", limit: 255
     t.integer  "click",            limit: 4
     t.string   "tpl",              limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "educational",      limit: 255
+    t.string   "address",          limit: 255
+    t.string   "political_status", limit: 255
+    t.string   "driving_license",  limit: 255
+    t.integer  "driving_age",      limit: 4
+    t.text     "evaluation",       limit: 65535
+    t.integer  "intention_job_id", limit: 4
   end
 
   create_table "sub_categories", force: :cascade do |t|
