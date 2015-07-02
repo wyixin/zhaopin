@@ -124,7 +124,7 @@
           </div>
           <div class="col-44">
             <input id="intention_job_hope_wage" type="text" name="intention_job[hope_wage]" value="<%=@intention_job.hope_wage %>">
-            <input id="intention_job_is_discuss" type="checkbox" value="y" name="intention_job[is_discuss]"/>显示为面议
+            <input id="intention_job_is_discuss" type="checkbox" value="y" name="intention_job[is_discuss]" <%if @intention_job.is_discuss.value=='y'%>checked="checked"<% end %>/>显示为面议
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@
           </div>
           <div class="col-44">
             <input id="intention_job_now_wage" type="text" name="intention_job[now_wage]" value="<%=@intention_job.now_wage %>">
-            <input id="intention_job_is_secrecy" type="checkbox" value="y" name="intention_job[is_secrecy]"/>显示为保密
+            <input id="intention_job_is_secrecy" type="checkbox" value="y" name="intention_job[is_secrecy]" <%if @intention_job.is_secrecy.value=='y'%>checked="checked"<% end %>/>显示为保密
           </div>
         </div>
       </div>
