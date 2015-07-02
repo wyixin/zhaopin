@@ -75,7 +75,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
 
-        format.html { redirect_to root_path, notice: '感谢您对维鼎的信任，您的招聘信息已得到我们的重视，稍后将会有专业的人力资源顾问与您联系.请您保持电话畅通,谢谢！' }
+        format.html { redirect_to root_path, notice: '感谢您对维鼎的信任，您的招聘信息已得到我们的重视，稍后将会有专业的人力资源顾问与您联系帮您完善资料.请您保持电话畅通,谢谢！' }
         format.json
       else
         format.html { render :new }

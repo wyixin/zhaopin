@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701153121) do
+ActiveRecord::Schema.define(version: 20150702072539) do
+
+  create_table "areas", force: :cascade do |t|
+    t.integer  "city_id",    limit: 4
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",           limit: 255
@@ -33,6 +40,12 @@ ActiveRecord::Schema.define(version: 20150701153121) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "address",    limit: 255
@@ -43,6 +56,12 @@ ActiveRecord::Schema.define(version: 20150701153121) do
     t.string   "logo",       limit: 255
     t.string   "logo_audit", limit: 255
     t.string   "contents",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -65,6 +84,12 @@ ActiveRecord::Schema.define(version: 20150701153121) do
     t.string   "temptation",      limit: 255
     t.text     "duty",            limit: 65535
     t.text     "requirement",     limit: 65535
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "resume_attachments", force: :cascade do |t|
@@ -142,6 +167,20 @@ ActiveRecord::Schema.define(version: 20150701153121) do
 
   create_table "sub_categories", force: :cascade do |t|
     t.integer  "category_id", limit: 4
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "sub_industries", force: :cascade do |t|
+    t.integer  "industry_id", limit: 4
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "sub_positions", force: :cascade do |t|
+    t.integer  "position_id", limit: 4
     t.string   "name",        limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
