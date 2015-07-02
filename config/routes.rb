@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       get 'display'
       post 'modify'
       post 'create_education'
+      post 'create_intention_job'
+
+      post 'get_sub_industry'
+      post 'get_sub_position'
+      post 'get_area'
     end
   end
   resources :jobs do

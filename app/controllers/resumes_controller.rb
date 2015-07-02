@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :is_user?
-  before_action :set_resume, except: [:display, :index]
+  before_action :set_resume, except: [:display, :index, :get_sub_industry, :get_sub_position, :get_area]
 
   # GET /resumes/1
   # GET /resumes/1.json
@@ -25,6 +25,11 @@ class ResumesController < ApplicationController
     else
       @resume = Resume.where(:user_id=>current_user.id).first
       @resume_education = ResumeEducation.where(:user_id=>current_user.id).first
+    end
+
+    @intention_job = IntentionJob.new
+    if @resume.intention_job_id.present?
+      @intention_job = IntentionJob.find(@resume.intention_job_id)
     end
 
     @resume_works = ResumeWork.where(:resume_id=>@resume.id)
@@ -70,7 +75,9 @@ class ResumesController < ApplicationController
     end
     session[:step] = 2
 
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back, notice: '工作经历编辑成功.' }
+    end
   end
 
   def create_education
@@ -78,7 +85,7 @@ class ResumesController < ApplicationController
     respond_to do |format|
       if @resume_education.update(resume_education_params)
         session[:step] = 3
-        format.html { redirect_to :back, notice: 'ResumeEducation was successfully updated.' }
+        format.html { redirect_to :back, notice: '教育背景编辑成功.' }
         format.json { render :display, status: :updated, location: @resume_education }
       else
         format.html { render :display }
@@ -87,7 +94,56 @@ class ResumesController < ApplicationController
     end
   end
 
+  def create_intention_job
+    respond_to do |format|
+      session[:step] = 4
+      if @resume.intention_job_id.blank?
+        @intention_job = IntentionJob.new(intention_job_params)
+        @intention_job.save
+        @resume.update_attribute('intention_job_id', @intention_job.id)
+      else
+        @intention_job = IntentionJob.find(@resume.intention_job_id)
+        @intention_job.update(intention_job_params)
+      end
+      format.html { redirect_to :back, notice: '求职意向编辑成功.' }
+    end
+  end
 
+
+  def get_sub_industry
+    @sub_industries = SubIndustry.where(:industry_id=>params[:id])
+
+    respond_to do |format|
+      format.json do
+        render json: {
+                   :results => (@sub_industries.map{|e| { :id => e.id, :text => e.name }} rescue '')
+               }
+      end
+    end
+  end
+
+  def get_sub_position
+    @sub_positions = SubPosition.where(:position_id=>params[:id])
+    respond_to do |format|
+      format.json do
+        render json: {
+                   :results => (@sub_positions.map{|e| { :id => e.id, :text => e.name }} rescue '')
+               }
+      end
+    end
+  end
+
+  def get_area
+    @areas = Area.where(:city_id=>params[:id])
+
+    respond_to do |format|
+      format.json do
+        render json: {
+                   :results => (@areas.map{|e| { :id => e.id, :text => e.name }} rescue '')
+               }
+      end
+    end
+  end
   # # GET /resumes/1/edit
   # def edit
   #   @resume_works = ResumeWork.where(:resume_id=>@resume.id)
@@ -189,4 +245,14 @@ class ResumesController < ApplicationController
           :mandarin, :other_skills
       )
     end
+
+    def intention_job_params
+      params.require(:intention_job).permit(
+          :intention_status, :sub_industry_id, :sub_position_id,
+          :area_id, :hope_wage, :is_discuss,
+          :now_wage, :is_secrecy
+      )
+    end
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702072539) do
+ActiveRecord::Schema.define(version: 20150702093025) do
 
   create_table "areas", force: :cascade do |t|
     t.integer  "city_id",    limit: 4
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 20150702072539) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "intention_jobs", force: :cascade do |t|
+    t.string   "intention_status", limit: 255
+    t.integer  "sub_industry_id",  limit: 4
+    t.integer  "sub_position_id",  limit: 4
+    t.integer  "area_id",          limit: 4
+    t.string   "hope_wage",        limit: 255
+    t.string   "now_wage",         limit: 255
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "is_discuss",       limit: 255, default: "n"
+    t.string   "is_secrecy",       limit: 255, default: "n"
   end
 
   create_table "jobs", force: :cascade do |t|

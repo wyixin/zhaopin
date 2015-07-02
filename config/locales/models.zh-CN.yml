@@ -67,6 +67,10 @@ zh-CN:
         title: 标题
         text: 内容
         sub_category_id: 分类
+      intention_job:
+        sub_industry_id: 期望行业
+        sub_position_id: 期望职位
+        area_id: 期望地点
   views:
       pagination:
         first: "&laquo; 首页"
@@ -112,3 +116,12 @@ zh-CN:
         university: 本科
         dr: 博士
         master: 硕士
+    intention_job:
+      intention_status:
+        wanted: 目前在求职状态(随时工作)
+        leave: 目前在离职状态(交接后可工作)
+        job: 目前在工作状态(希望更好工作)
+      is_discuss:
+        y: 面议
+      is_secrecy:
+        y: 保密

@@ -1,0 +1,154 @@
+<div class="row">
+  <%= form_for @intention_job,:url => create_intention_job_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :id=>"intentionJobForm"} do |f| %>
+      <% if @resume.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@intention_job.errors.count, "error") %> prohibited this intention_job from being saved:</h2>
+
+            <ul>
+              <% @intention_job.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">求职状态</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <select id="intention_job_intention_status" name="intention_job[intention_status]" style="width: 300px;">
+                <% IntentionJob.intention_status.options.each do |status|%>
+                  <option value="<%=status.last %>" <%if @intention_job.intention_status.value==status.last%>selected<%end%>>
+                    <%=status.first %>
+                  </option>
+                <%end%>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">期望行业</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <select id="intention_job_industry_id" style="width:200px;">
+              <option value="">请选择</option>
+              <%industryId = @intention_job.sub_industry.industry_id rescue ''%>
+              <% Industry.all.each do |industry|%>
+                  <option value="<%=industry.id %>" <%if industryId==industry.id%>selected<%end%>>
+                    <%=industry.name %>
+                  </option>
+              <%end%>
+            </select>
+            <select id="intention_job_sub_industry_id" name="intention_job[sub_industry_id]">
+              <option value="">请选择</option>
+              <% SubIndustry.where(:industry_id=>industryId).each do |sub_industry|%>
+                  <option value="<%=sub_industry.id %>" <%if @intention_job.sub_industry_id==sub_industry.id%>selected<%end%>>
+                    <%=sub_industry.name %>
+                  </option>
+              <%end%>
+            </select>
+            <input type="hidden" id="subIndustryId" value="<%=@intention_job.sub_industry_id %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">期望职位</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <select id="intention_job_position_id" style="width:200px;">
+              <option value="">请选择</option>
+              <%positionId = @intention_job.sub_position.position_id rescue ''%>
+              <% Position.all.each do |position|%>
+                  <option value="<%=position.id %>" <%if positionId==position.id%>selected<%end%>>
+                    <%=position.name %>
+                  </option>
+              <%end%>
+            </select>
+            <select id="intention_job_sub_position_id" name="intention_job[sub_position_id]">
+              <option value="">请选择</option>
+              <% SubPosition.where(:position_id=>positionId).each do |sub_position|%>
+                  <option value="<%=sub_position.id %>" <%if @intention_job.sub_position_id==sub_position.id%>selected<%end%>>
+                    <%=sub_position.name %>
+                  </option>
+              <%end%>
+            </select>
+            <input type="hidden" id="subPositionId" value="<%=@intention_job.sub_position_id %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">期望地点</label>
+            <span class="light">*</span>
+          </div>
+          <div class="col-44">
+            <select id="intention_job_city_id" style="width:200px;">
+              <option value="">请选择</option>
+              <%cityId = @intention_job.area.city_id rescue ''%>
+              <% City.all.each do |city|%>
+                  <option value="<%=city.id %>" <%if cityId==city.id%>selected<%end%>>
+                    <%=city.name %>
+                  </option>
+              <%end%>
+            </select>
+            <select id="intention_job_area_id" name="intention_job[area_id]">
+              <option value="">请选择</option>
+              <% Area.where(:city_id=>cityId).each do |area|%>
+                  <option value="<%=area.id %>" <%if @intention_job.area_id==area.id%>selected<%end%>>
+                    <%=area.name %>
+                  </option>
+              <%end%>
+            </select>
+            <input type="hidden" id="areaId" value="<%=@intention_job.area_id %>"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">期望薪资</label>
+          </div>
+          <div class="col-44">
+            <input id="intention_job_hope_wage" type="text" name="intention_job[hope_wage]" value="<%=@intention_job.hope_wage %>">
+            <input id="intention_job_is_discuss" type="checkbox" value="y" name="intention_job[is_discuss]"/>显示为面议
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4">
+            <label for="">目前薪资</label>
+          </div>
+          <div class="col-44">
+            <input id="intention_job_now_wage" type="text" name="intention_job[now_wage]" value="<%=@intention_job.now_wage %>">
+            <input id="intention_job_is_secrecy" type="checkbox" value="y" name="intention_job[is_secrecy]"/>显示为保密
+          </div>
+        </div>
+      </div>
+
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-44">
+            <button class="btn-primary" type="submit" >保存</button>
+            <!--<button class="btn-default" type="button">取消</button>-->
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

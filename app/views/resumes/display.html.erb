@@ -12,7 +12,8 @@
   <div class="row">
     <div class="col-48 userInfoTabs">
       <div class="row text-center">
-        <div class="col-6 item <%if session[:step].to_i==1%>active<% end %> resume_option_div" data-target="resume_form" style="cursor: pointer;">基本信息</div>
+        <div class="col-6 item <%if session[:step].to_i==1%>active<% end %> resume_option_div" data-target="resume_form" style="cursor: pointer;">个人信息</div>
+        <div class="col-6 item <%if session[:step].to_i==4%>active<% end %> resume_option_div" data-target="intention_job_form" style="cursor: pointer;">求职意向</div>
         <div class="col-6 item <%if session[:step].to_i==2%>active<% end %> resume_option_div" data-target="resume_work_form" style="cursor: pointer;">工作经历</div>
         <div class="col-6 item <%if session[:step].to_i==3%>active<% end %> resume_option_div" data-target="resume_education_form" style="cursor: pointer;">教育背景</div>
       </div>
@@ -21,6 +22,11 @@
       <div id="resume_form" class="resume_content_div" <%if session[:step].to_i==1%>style="display: block;"<%else%>style="display: none;"<% end %>>
         <%= render 'resume_form'%>
       </div>
+
+      <div id="intention_job_form" class="resume_content_div" <%if session[:step].to_i==4%>style="display: block;"<%else%>style="display: none;"<% end %>>
+        <%= render 'intention_job_form'%>
+      </div>
+
       <div id="resume_work_form" class="resume_content_div" <%if session[:step].to_i==2%>style="display: block;"<%else%>style="display: none;"<% end %>>
         <%= render 'resume_work_form'%>
       </div>
