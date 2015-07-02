@@ -38,9 +38,14 @@ class CompaniesController < ApplicationController
       start_time = "#{params[:job]['strat_time(1i)'][i]}-#{params[:job]['strat_time(2i)'][i]}-#{params[:job]['strat_time(3i)'][i]}"
       end_time = "#{params[:job]['end_time(1i)'][i]}-#{params[:job]['end_time(2i)'][i]}-#{params[:job]['end_time(3i)'][i]}"
       category_id = SubCategory.find(params[:job][:sub_category_id][i]).id
+      amount = 1
+      if params[:job][:amount][i].to_i!=0
+        amount = params[:job][:amount][i]
+      end
       job = Job.new(
           :company_id=>@company.id,
           :name=>params[:job][:name][i],
+          :amount=>amount,
           :sub_category_id=>params[:job][:sub_category_id][i],
           :category_id=>category_id,
           :sex=>params[:job][:sex][i],
@@ -56,8 +61,9 @@ class CompaniesController < ApplicationController
       )
       job.save
     end
-
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back, notice: '公司招聘信息编辑成功.' }
+    end
   end
 
 
@@ -69,7 +75,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
 
-        format.html { redirect_to root_path, notice: '您的企业信息已经成功提交,请耐心等待.我们的客服会在24小时内联系您.' }
+        format.html { redirect_to root_path, notice: '感谢您对维鼎的信任，您的招聘信息已得到我们的重视，稍后将会有专业的人力资源顾问与您联系.请您保持电话畅通,谢谢！' }
         format.json
       else
         format.html { render :new }

@@ -3,7 +3,7 @@
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
-        <label for="">职位名称</label>
+        <label for="">招聘岗位</label>
         <span class="light">*</span>
       </div>
       <div class="col-44">
@@ -11,7 +11,17 @@
       </div>
     </div>
   </div>
-
+  <div class="col-48 line">
+    <div class="row">
+      <div class="col-4">
+        <label for="">招聘人数</label>
+        <span class="light">*</span>
+      </div>
+      <div class="col-44">
+        <input id="job_amount" type="text" name="job[amount][]" value="<%=@job.amount %>"/>
+      </div>
+    </div>
+  </div>
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
@@ -162,7 +172,7 @@
         <label for="">职位诱惑</label>
       </div>
       <div class="col-44">
-        <input id="job_temptation" type="text" name="job[temptation][]" value="<%=@job.temptation %>" placeholder="如: 气氛自由，空间充足，发展前景好，年度旅游"/>
+        <input id="job_temptation" type="text" name="job[temptation][]" value="<%=@job.temptation %>" placeholder="如: 包食宿,五险一金,年度旅游,气氛自由,发展前景好"/>
         <i>之间使用逗号隔开</i>
       </div>
     </div>
@@ -171,7 +181,7 @@
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
-        <label for="">工作职责</label>
+        <label for="">岗位职责</label>
       </div>
       <div class="col-44">
         <textarea name="job[duty][]" style="background-color: #ffffff;border:1px solid grey;"><%=@job.duty %></textarea>
@@ -183,7 +193,7 @@
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
-        <label for="">岗位要求</label>
+        <label for="">任职需求</label>
       </div>
       <div class="col-44">
         <textarea name="job[requirement][]" style="background-color: #ffffff;border:1px solid grey;"><%=@job.requirement %></textarea>

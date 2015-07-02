@@ -11,10 +11,10 @@
   %>
   <div class="row text-center">
     <div class="col-6 item <%if params[:action]=='edit' or params[:action]=='update' %>active<% end %>">
-      <%=link_to '编辑企业信息', edit_company_path(@company), :style=>style%>
+      <%=link_to '编辑公司信息', edit_company_path(@company), :style=>style%>
     </div>
     <div class="col-6 item <%if params[:action]=='edit_job' or params[:action]=='create_job'%>active<% end %>">
-      <%=link_to '编辑企业招聘信息', edit_job_companies_path(:id=>@company.id), :style=>estyle %>
+      <%=link_to '编辑公司招聘信息', edit_job_companies_path(:id=>@company.id), :style=>estyle %>
     </div>
   </div>
 </div>
