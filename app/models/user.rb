@@ -14,10 +14,11 @@ class User < ActiveRecord::Base
     resume = Resume.new(:user_id=>self.id)
     resume.save
 
-    intention_job = IntentionJob.new()
-
     resume_work = ResumeWork.new(:resume_id=>resume.id)
     resume_work.save
+
+    training = Training.new(:resume_id=>resume.id)
+    training.save
 
     resume_education = ResumeEducation.new(:user_id=>self.id)
     resume_education.save

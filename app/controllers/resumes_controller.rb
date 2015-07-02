@@ -35,6 +35,9 @@ class ResumesController < ApplicationController
     @resume_works = ResumeWork.where(:resume_id=>@resume.id)
     @resume_work = @resume_works.first
 
+    @trainings = Training.where(:resume_id=>@resume.id)
+    @training = Training.new
+
   end
 
   def modify
@@ -65,11 +68,16 @@ class ResumesController < ApplicationController
       resume_work = ResumeWork.new(
           :resume_id=>@resume.id,
           :company=>params[:resume_work][:company][i],
+          :number=>params[:resume_work][:number][i],
+          :industry=>params[:resume_work][:industry][i],
           :job=>params[:resume_work][:job][i],
           :wage=>params[:resume_work][:wage][i],
           :start_time=>start_time,
           :end_time=>end_time,
-          :achievements=>params[:resume_work][:achievements][i]
+          :achievements=>params[:resume_work][:achievements][i],
+          :quality_case=>params[:resume_work][:quality_case][i],
+          :ranking=>params[:resume_work][:ranking][i],
+          :reasons=>params[:resume_work][:reasons][i]
       )
       resume_work.save
     end
@@ -77,6 +85,29 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :back, notice: '工作经历编辑成功.' }
+    end
+  end
+
+  def create_train
+    @resume.trainings.destroy_all
+    training_length = params[:training][:name].length
+    (0..training_length-1).each do |i|
+      start_time = "#{params[:training]['start_time(1i)'][i]}-#{params[:training]['start_time(2i)'][i]}-#{params[:training]['start_time(3i)'][i]}"
+      end_time = "#{params[:training]['end_time(1i)'][i]}-#{params[:training]['end_time(2i)'][i]}-#{params[:training]['end_time(3i)'][i]}"
+      training = Training.new(
+          :resume_id=>@resume.id,
+          :name=>params[:training][:name][i],
+          :start_time=>start_time,
+          :end_time=>end_time,
+          :content=>params[:training][:content][i]
+      )
+      training.save
+    end
+
+    session[:step] = 5
+
+    respond_to do |format|
+      format.html { redirect_to :back, notice: '培训经历编辑成功.' }
     end
   end
 

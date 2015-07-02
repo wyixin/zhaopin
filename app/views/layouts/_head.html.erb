@@ -11,8 +11,11 @@
           <button class="col-48 btn-primary">搜索</button>
         </div>
     </form>-->
-    
-    <% if current_user.role.user? %>
+    <div class="col-40"  style="padding-left: 350px;">
+      <div class="col-36"><h1 style="margin-top: 0px; margin-bottom: 0px;width: 200px;color:<%if !user_signed_in? %>#ffffff<%else%>#333333<%end%>;">维鼎猎聘网</h1></div>
+      <div class="col-3"><h1 style="margin-top: 0px; margin-bottom: 0px;width: 300px;color:<%if !user_signed_in? %>#ffffff<%else%>#333333<%end%>;">0579-85501180</h1></div>
+    </div>
+    <% if current_user.present? and current_user.role.user? %>
       <div class="col-6 pull-right">
         <button class="col-48 btn-default">
           <%= link_to '发布简历', display_resumes_path%>

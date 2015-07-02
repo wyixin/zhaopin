@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post 'modify'
       post 'create_education'
       post 'create_intention_job'
+      post 'create_train'
 
       post 'get_sub_industry'
       post 'get_sub_position'
@@ -46,7 +47,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  
+  match '/about_us'=>'welcome#about_us', via: :get
+
   root 'welcome#index'
 
   # Example of regular route:

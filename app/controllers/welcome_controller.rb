@@ -8,4 +8,7 @@ class WelcomeController < ApplicationController
       return
     end
   end
+
+  def about_us
+  end
 end

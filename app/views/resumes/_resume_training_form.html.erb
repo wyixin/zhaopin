@@ -1,0 +1,100 @@
+<div class="row">
+    <%= form_for @training,:url => create_train_resumes_path(:id=>@resume.id), :html=>{:method=>'post', :id=>"resumeTrainForm"} do |f| %>
+      <% if @training.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@training.errors.count, "error") %> prohibited this resume_work from being saved:</h2>
+
+          <ul>
+          <% @training.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% @trainings.each do |training|%>
+          <div class="resume_training_div">
+              <div class="col-48 line">
+                <div class="row">
+                  <div class="col-4">
+                    <label for="">培训机构</label>
+                    <span class="light">*</span>
+                  </div>
+                  <div class="col-44">
+                    <input id="training_name" type="text" name="training[name][]" value="<%=training.name %>">
+                  </div>
+                </div>
+              </div>
+              <div class="col-48 line">
+                <div class="row">
+                  <div class="col-4">
+                    <label for="">起止日期</label>
+                    <span class="light">*</span>
+                  </div>
+                  <div class="col-44">
+                    <div class="row">
+                      <select name="training[start_time(1i)][]" id="training_start_time_1i">
+                        <% (2010..2015).each do |y|%>
+                            <option value="<%=y%>" <%if year(training.start_time)==y%>selected<%end%>><%=y%></option>
+                        <% end %>
+                      </select>
+                      <select name="training[start_time(2i)][]" id="training_start_time_2i">
+                        <% (1..12).each do |m|%>
+                            <option value="<%=m %>" <%if month(training.start_time)==m%>selected<%end%>><%=m %></option>
+                        <% end %>
+                      </select>
+                      <select name="training[start_time(3i)][]" id="training_start_time_3i">
+                        <% (1..31).each do |d|%>
+                            <option value="<%=d %>" <%if day(training.start_time)==d%>selected<%end%>><%=d %></option>
+                        <% end %>
+                      </select>
+
+                    </div>
+
+                      <div class="row">
+                        <select name="training[end_time(1i)][]" id="training_end_time_1i">
+                          <% (2010..2015).each do |y|%>
+                              <option value="<%=y%>" <%if year(training.end_time)==y%>selected<%end%>><%=y%></option>
+                          <% end %>
+                        </select>
+                        <select name="training[end_time(2i)][]" id="training_end_time_2i">
+                          <% (1..12).each do |m|%>
+                              <option value="<%=m %>" <%if month(training.end_time)==m%>selected<%end%>><%=m %></option>
+                          <% end %>
+                        </select>
+                        <select name="training[end_time(3i)][]" id="training_end_time_3i">
+                          <% (1..31).each do |d|%>
+                              <option value="<%=d %>" <%if day(training.end_time)==d%>selected<%end%>><%=d %></option>
+                          <% end %>
+                        </select>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-48 line">
+                <div class="row">
+                  <div class="col-4">
+                    <label for="">培训内容</label>
+                    <span class="light">*</span>
+                  </div>
+                  <div class="col-44">
+                    <textarea id="training_content" name="training[content][]" style="background-color: #ffffff;border:1px solid grey;"><%=training.content %></textarea>
+                  </div>
+                </div>
+              </div>
+          </div>
+      <% end %>
+      <div class="col-48 line">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-44">
+            <button class="btn-primary" type="button" id="resume_training_btn" >保存</button>
+            <button class="btn-primary" type="button" id="add_resume_training_btn">增加培训经历</button>
+            <!--<button class="btn-default" type="button">取消</button>-->
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

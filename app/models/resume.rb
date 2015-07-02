@@ -18,6 +18,7 @@ class Resume < ActiveRecord::Base
   belongs_to :user
   has_many :resume_attachments
   has_many :resume_works
+  has_many :trainings
   belongs_to :intention_job
 
   def self.districts

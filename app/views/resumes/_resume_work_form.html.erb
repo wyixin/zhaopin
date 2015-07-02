@@ -27,6 +27,67 @@
                 </div>
               </div>
               <div class="col-48 line">
+                  <div class="row">
+                        <div class="col-4">
+                          <label for="">公司规模</label>
+                          <span class="light">*</span>
+                        </div>
+                        <div class="col-44">
+                          <input id="resume_work_number" type="number" name="resume_work[number][]" value="<%=resume_work.number %>">
+                        </div>
+                  </div>
+              </div>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">所属行业</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="resume_work_industry" type="text" name="resume_work[industry][]" value="<%=resume_work.industry %>">
+                </div>
+              </div>
+            </div>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">薪资</label>
+                  <span class="light">*</span>
+                </div>
+                <div class="col-44">
+                  <input id="resume_work_wage" type="text" name="resume_work[wage][]" value="<%=resume_work.wage %>">
+                </div>
+              </div>
+            </div>
+            <div class="col-48 line">
+              <div class="row">
+                <div class="col-4">
+                  <label for="">工作内容</label>
+                </div>
+                <div class="col-44">
+                  <table>
+                    <tr>
+                      <td>具体内容</td>
+                      <td colspan="3">
+                        <textarea id="resume_work_achievements" name="resume_work[achievements][]" style="background-color: #ffffff;border:1px solid grey;"><%=resume_work.achievements %></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>优质案例</td>
+                      <td>
+                        <textarea id="resume_work_quality_case" name="resume_work[quality_case][]" style="background-color: #ffffff;border:1px solid grey;"><%=resume_work.quality_case %></textarea>
+                      </td>
+                      <td>业绩排名(非销售可不填)</td>
+                      <td>
+                        <input id="resume_work_ranking" type="number" name="resume_work[ranking][]" value="<%=resume_work.ranking %>">
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+              <div class="col-48 line">
                 <div class="row">
                   <div class="col-4">
                     <label for="">职位名称</label>
@@ -34,17 +95,6 @@
                   </div>
                   <div class="col-44">
                     <input id="resume_work_job" type="text" name="resume_work[job][]" value="<%=resume_work.job %>">
-                  </div>
-                </div>
-              </div>
-              <div class="col-48 line">
-                <div class="row">
-                  <div class="col-4">
-                    <label for="">薪资</label>
-                    <span class="light">*</span>
-                  </div>
-                  <div class="col-44">
-                    <input id="resume_work_wage" type="text" name="resume_work[wage][]" value="<%=resume_work.wage %>">
                   </div>
                 </div>
               </div>
@@ -99,11 +149,11 @@
               <div class="col-48 line">
                 <div class="row">
                   <div class="col-4">
-                    <label for="">工作描述</label>
+                    <label for="">离职原因</label>
                     <span class="light">*</span>
                   </div>
                   <div class="col-44">
-                    <textarea id="resume_work_achievements" name="resume_work[achievements][]" style="background-color: #ffffff;border:1px solid grey;"><%=resume_work.achievements %></textarea>
+                    <input type="text" id="resume_work_reasons" name="resume_work[reasons][]" value="<%=resume_work.reasons %>"/>
                   </div>
                 </div>
               </div>

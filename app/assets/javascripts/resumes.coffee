@@ -26,6 +26,22 @@ jQuery ->
     if is_sub
       $("#resumeWorkForm").submit()
 
+  $("#add_resume_training_btn").click ->
+    newDiv = $(".resume_training_div:first").clone(true)
+    $(".resume_training_div:last").after(newDiv)
+
+
+  $("#resume_training_btn").click ->
+    training_name = $("input[name='training[name][]']")
+    is_sub = true
+    training_name.each (index,fee)->
+      if $(this).val()==""
+        alert "培训机构不能为空"
+        $(this).focus()
+        is_sub = false
+    if is_sub
+      $("#resumeTrainForm").submit()
+
   $("#intention_job_industry_id").change ->
     if $(@).val()
       subIndustryId = $("#subIndustryId").val()
