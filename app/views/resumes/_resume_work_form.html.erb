@@ -60,32 +60,32 @@
               </div>
             </div>
             <div class="col-48 line">
-              <div class="row">
-                <div class="col-4">
-                  <label for="">工作内容</label>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">具体内容</label>
+                        <span class="light">*</span>
+                    </div>
+                    <div class="col-44">
+                        <textarea id="resume_work_achievements" name="resume_work[achievements][]"><%=resume_work.achievements %></textarea> 
+                    </div>
                 </div>
-                <div class="col-44">
-                  <table>
-                    <tr>
-                      <td>具体内容</td>
-                      <td colspan="3">
-                        <textarea id="resume_work_achievements" name="resume_work[achievements][]" style="background-color: #ffffff;border:1px solid grey;"><%=resume_work.achievements %></textarea>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>优质案例</td>
-                      <td>
-                        <textarea id="resume_work_quality_case" name="resume_work[quality_case][]" style="background-color: #ffffff;border:1px solid grey;"><%=resume_work.quality_case %></textarea>
-                      </td>
-                      <td>业绩排名(非销售可不填)</td>
-                      <td>
-                        <input id="resume_work_ranking" type="number" name="resume_work[ranking][]" value="<%=resume_work.ranking %>">
-                      </td>
-                    </tr>
-                  </table>
-
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">优质案例</label>
+                        <span class="light">*</span>
+                    </div>
+                    <div class="col-44">
+                        <textarea id="resume_work_quality_case" name="resume_work[quality_case][]"><%=resume_work.quality_case %></textarea>                            
+                    </div>
                 </div>
-              </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label for="">业绩排名(非销售可不填)</label>
+                    </div>
+                    <div class="col-40">
+                        <input id="resume_work_ranking" type="number" name="resume_work[ranking][]" value="<%=resume_work.ranking %>">                            
+                    </div>
+                </div>
             </div>
               <div class="col-48 line">
                 <div class="row">
