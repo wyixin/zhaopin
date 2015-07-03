@@ -279,7 +279,8 @@ class ResumesController < ApplicationController
 
     def intention_job_params
       params.require(:intention_job).permit(
-          :intention_status, :sub_industry_id, :sub_position_id,
+          :intention_status, :industry_id, :sub_industry_id,
+          :position_id, :sub_position_id, :city_id,
           :area_id, :hope_wage, :is_discuss,
           :now_wage, :is_secrecy
       )

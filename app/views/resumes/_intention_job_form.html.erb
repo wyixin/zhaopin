@@ -37,9 +37,9 @@
             <span class="light">*</span>
           </div>
           <div class="col-44">
-            <select id="intention_job_industry_id" style="width:200px;">
+            <select id="intention_job_industry_id" name="intention_job[industry_id]" style="width:200px;">
               <option value="">请选择</option>
-              <%industryId = @intention_job.sub_industry.industry_id rescue ''%>
+              <%industryId = @intention_job.industry_id %>
               <% Industry.all.each do |industry|%>
                   <option value="<%=industry.id %>" <%if industryId==industry.id%>selected<%end%>>
                     <%=industry.name %>
@@ -66,9 +66,9 @@
             <span class="light">*</span>
           </div>
           <div class="col-44">
-            <select id="intention_job_position_id" style="width:200px;">
+            <select id="intention_job_position_id" name="intention_job[position_id]" style="width:200px;">
               <option value="">请选择</option>
-              <%positionId = @intention_job.sub_position.position_id rescue ''%>
+              <%positionId = @intention_job.position_id %>
               <% Position.all.each do |position|%>
                   <option value="<%=position.id %>" <%if positionId==position.id%>selected<%end%>>
                     <%=position.name %>
@@ -95,9 +95,9 @@
             <span class="light">*</span>
           </div>
           <div class="col-44">
-            <select id="intention_job_city_id" style="width:200px;">
+            <select id="intention_job_city_id" name="intention_job[city_id]" style="width:200px;">
               <option value="">请选择</option>
-              <%cityId = @intention_job.area.city_id rescue ''%>
+              <%cityId = @intention_job.city_id %>
               <% City.all.each do |city|%>
                   <option value="<%=city.id %>" <%if cityId==city.id%>selected<%end%>>
                     <%=city.name %>

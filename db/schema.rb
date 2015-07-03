@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702130916) do
+ActiveRecord::Schema.define(version: 20150703034127) do
 
   create_table "areas", force: :cascade do |t|
     t.integer  "city_id",    limit: 4
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20150702130916) do
     t.datetime "updated_at",                                 null: false
     t.string   "is_discuss",       limit: 255, default: "n"
     t.string   "is_secrecy",       limit: 255, default: "n"
+    t.integer  "industry_id",      limit: 4
+    t.integer  "position_id",      limit: 4
+    t.integer  "city_id",          limit: 4
   end
 
   create_table "jobs", force: :cascade do |t|
