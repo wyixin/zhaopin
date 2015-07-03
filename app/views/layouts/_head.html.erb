@@ -1,33 +1,30 @@
 <div class="header container">
   <div class="row">
-    <div class="col-4">
-      <%=image_tag 'logo.jpg', :alt=>"logo", :class=>"img-responsive logo"%>
+    <div class="col-8">
+      <%=image_tag 'logo.png', :alt=>"logo", :class=>"img-responsive logo"%>
     </div>
-    <div class="col-40"  style="padding-left: 350px;">
-      <div class="col-36"><h1>维鼎猎聘网</h1></div>
-      <div class="col-3"><h1>0579-85501180</h1></div>
-    </div>
-    <% if current_user.present? and current_user.role.user? %>
-      <div class="col-6 pull-right">
-        <button class="col-48 btn-default">
-          <%= link_to '发布简历', display_resumes_path%>
-        </button>            
-      </div>
-    <% end %>
     <% if current_user.present? and current_user.role.customer? %>
-        <form action="<%=resumes_path%>">
-          <div class="col-12 col-offset-5">
+        <form action="<%=resumes_path%>" class="col-12 col-offset-5">
             <input name="key_words" type="text" placeholder="简历关键字搜索(支持职位分类)" class="col-48 ipt-primary" value="<%=params[:key_words]%>"/>
-          </div>
-          <div class="col-4">
-            <button class="col-48 btn-primary">搜索</button>
-          </div>
         </form>
+        <div class="col-4">
+            <button class="col-48 btn-primary">搜索</button>
+        </div>
     <% end %>
+    <div class="col-6 pull-right">
+    <% if current_user.present? and current_user.role.user? %>
+        <button class="col-48 btn-default">
+            <%= link_to '发布简历', display_resumes_path%>
+        </button>            
+    <% else %>
+        <em>维鼎猎聘网</em><br>
+        <em>0579-85501180</em>
+    <% end %>
+    </div>
   </div>
 </div>
 <% if !user_signed_in?%>
-    <div class="alert alert-success fade in flash-message" style="top: 81px; left: 130px; ">
-      <button class="close" type="button">×</button>
-    </div>
+<div class="alert alert-success fade in flash-message container">
+  <button class="close" type="button">×</button>
+</div>
 <% end %>
