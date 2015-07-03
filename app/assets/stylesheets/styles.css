@@ -1374,6 +1374,7 @@ table tr td {
   display: inline-block;
   float: left;
   transition: color .3s;
+  font-size: 14px;
 }
 .sidebar .sidebarContent .sidebarItem:hover {
   color: #545454;
