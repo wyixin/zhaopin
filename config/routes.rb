@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  match '/about_us'=>'welcome#about_us', via: :get
+  match '/about'=>'welcome#about_us', via: :get
 
   root 'welcome#index'
 
