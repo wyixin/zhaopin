@@ -37,7 +37,6 @@ class CompaniesController < ApplicationController
     (0..job_length-1).each do |i|
       start_time = "#{params[:job]['strat_time(1i)'][i]}-#{params[:job]['strat_time(2i)'][i]}-#{params[:job]['strat_time(3i)'][i]}"
       end_time = "#{params[:job]['end_time(1i)'][i]}-#{params[:job]['end_time(2i)'][i]}-#{params[:job]['end_time(3i)'][i]}"
-      category_id = SubCategory.find(params[:job][:sub_category_id][i]).id
       amount = 1
       if params[:job][:amount][i].to_i!=0
         amount = params[:job][:amount][i]
@@ -46,8 +45,8 @@ class CompaniesController < ApplicationController
           :company_id=>@company.id,
           :name=>params[:job][:name][i],
           :amount=>amount,
-          :sub_category_id=>params[:job][:sub_category_id][i],
-          :category_id=>category_id,
+          :sub_position_id=>params[:job][:sub_position_id][i],
+          :position_id=>params[:job][:position_id][i],
           :sex=>params[:job][:sex][i],
           :recommend=>params[:job][:recommend][i],
           :strat_time=>start_time,

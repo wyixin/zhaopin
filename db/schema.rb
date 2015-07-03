@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703034127) do
+ActiveRecord::Schema.define(version: 20150703035531) do
 
   create_table "areas", force: :cascade do |t|
     t.integer  "city_id",    limit: 4
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20150703034127) do
     t.string   "recommend",       limit: 255
     t.string   "sex",             limit: 255
     t.string   "amount",          limit: 255
-    t.integer  "category_id",     limit: 4
-    t.integer  "sub_category_id", limit: 4
+    t.integer  "position_id",     limit: 4
+    t.integer  "sub_position_id", limit: 4
     t.string   "education",       limit: 255
     t.string   "experience",      limit: 255
     t.string   "wage",            limit: 255

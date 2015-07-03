@@ -1,18 +1,16 @@
 <div class="sidebar col-10">
-  <% @categories.each do |category|%>
-      <%if category.id != 6%>
-          <div class="row">
-            <p class="col-48"><%= category.name %> <span class="pull-right">&gt;</span> </p>
-            <div class="col-48 sidebarContent">
-              <% category.sub_categories.each do |sub_category|%>
-                <%if params[:action]=='index'%>
-                      <%=link_to sub_category.name, jobs_path(:sub_category_id=>sub_category.id), :class=>"sidebarItem" %>
-                <% else %>
-                      <%=link_to sub_category.name, new_job_jobs_path(:sub_category_id=>sub_category.id), :class=>"sidebarItem"  %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-      <% end %>
+  <% @positions.each do |position|%>
+      <div class="row">
+        <p class="col-48"><%= position.name %> <span class="pull-right">&gt;</span> </p>
+        <div class="col-48 sidebarContent">
+          <% position.sub_positions.each do |sub_position|%>
+            <%if params[:action]=='index'%>
+                  <%=link_to sub_position.name, jobs_path(:sub_position_id=>sub_position.id), :class=>"sidebarItem" %>
+            <% else %>
+                  <%=link_to sub_position.name, new_job_jobs_path(:sub_position_id=>sub_position.id), :class=>"sidebarItem"  %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
   <% end %>
 </div>

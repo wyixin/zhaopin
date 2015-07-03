@@ -8,7 +8,15 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.page(params[:page])
+    if params[:key_words].present?
+      @resumes = Resume.joins(:intention_job).where("intention_jobs.position_id=(select id from positions where name like '%#{params[:key_words]}%')
+                                             or intention_jobs.sub_position_id=(select id from sub_positions where name like '%#{params[:key_words]}%')
+                                             or resumes.tag like '%#{params[:key_words]}%'").page(params[:page])
+
+    else
+      @resumes = Resume.page(params[:page])
+    end
+
   end
 
 

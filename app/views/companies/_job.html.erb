@@ -1,5 +1,4 @@
 <div class="job_div">
-
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
@@ -22,22 +21,32 @@
       </div>
     </div>
   </div>
+
   <div class="col-48 line">
     <div class="row">
       <div class="col-4">
-        <label for="">行业分类</label>
+        <label for="">职位分类</label>
         <span class="light">*</span>
       </div>
       <div class="col-44">
-        <div class="row">
-          <select name="job[sub_category_id][]">
-            <% @sub_categories.each do |sub_category| %>
-                <option <%if @job.sub_category_id==sub_category.id%>selected<% end %> value="<%=sub_category.id %>">
-                  <%=sub_category.name %>
-                </option>
-            <% end %>
-          </select>
-        </div>
+        <select id="job_position_id" name="job[position_id][]" style="width:200px;">
+          <option value="">请选择</option>
+          <%positionId = @job.position_id %>
+          <% Position.all.each do |position|%>
+              <option value="<%=position.id %>" <%if positionId==position.id%>selected<%end%>>
+                <%=position.name %>
+              </option>
+          <%end%>
+        </select>
+        <select id="job_sub_position_id" name="job[sub_position_id][]">
+          <option value="">请选择</option>
+          <% SubPosition.where(:position_id=>positionId).each do |sub_position|%>
+              <option value="<%=sub_position.id %>" <%if @job.sub_position_id==sub_position.id%>selected<%end%>>
+                <%=sub_position.name %>
+              </option>
+          <%end%>
+        </select>
+        <input type="hidden" id="subPositionId" value="<%=@job.sub_position_id %>"/>
       </div>
     </div>
   </div>

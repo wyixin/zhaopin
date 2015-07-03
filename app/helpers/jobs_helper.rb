@@ -2,11 +2,11 @@ module JobsHelper
 
   def hot_category_class(sub_category_id)
     case sub_category_id
-      when 7
+      when 222
         'warm'
-      when 8
+      when 139
         'info'
-      when 9
+      when 31
         'success'
       else
         'hot'

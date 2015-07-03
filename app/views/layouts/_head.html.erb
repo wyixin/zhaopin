@@ -3,14 +3,6 @@
     <div class="col-4">
       <%=image_tag 'logo.jpg', :alt=>"logo", :class=>"img-responsive logo"%>
     </div>
-    <!--<form action="/jobs/new_job">
-        <div class="col-12 col-offset-5">
-          <input name="job_name" type="text" placeholder="搜索专属你的职位" class="col-48 ipt-primary">
-        </div>
-        <div class="col-4">
-          <button class="col-48 btn-primary">搜索</button>
-        </div>
-    </form>-->
     <div class="col-40"  style="padding-left: 350px;">
       <div class="col-36"><h1 style="margin-top: 0px; margin-bottom: 0px;width: 200px;color:<%if !user_signed_in? %>#ffffff<%else%>#333333<%end%>;">维鼎猎聘网</h1></div>
       <div class="col-3"><h1 style="margin-top: 0px; margin-bottom: 0px;width: 300px;color:<%if !user_signed_in? %>#ffffff<%else%>#333333<%end%>;">0579-85501180</h1></div>
@@ -21,6 +13,16 @@
           <%= link_to '发布简历', display_resumes_path%>
         </button>            
       </div>
+    <% end %>
+    <% if current_user.present? and current_user.role.customer? %>
+        <form action="<%=resumes_path%>">
+          <div class="col-12 col-offset-5">
+            <input name="key_words" type="text" placeholder="简历关键字搜索(支持职位分类)" class="col-48 ipt-primary" value="<%=params[:key_words]%>"/>
+          </div>
+          <div class="col-4">
+            <button class="col-48 btn-primary">搜索</button>
+          </div>
+        </form>
     <% end %>
   </div>
 </div>

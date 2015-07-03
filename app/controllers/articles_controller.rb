@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :is_user?
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :set_category
+  before_action :set_position
 
   # GET /articles
   # GET /articles.json
@@ -81,9 +81,8 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :text, :sub_category_id, :source)
     end
-
-    def set_category
-      @hot_sub_categories = SubCategory.where(:category_id=>6)
+    def set_position
       @sub_categories = SubCategory.where(:category_id=>nil)
+      @hot_sub_positions = SubPosition.where('id in (222,139,31,19)')
     end
 end

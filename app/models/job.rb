@@ -8,8 +8,8 @@ class Job < ActiveRecord::Base
   validates_presence_of :name
 
   belongs_to :company
-  belongs_to :category
-  belongs_to :sub_category
+  belongs_to :position
+  belongs_to :sub_position
 
 
   def duty_to_arr

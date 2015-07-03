@@ -8,7 +8,9 @@ class IntentionJob < ActiveRecord::Base
   belongs_to :industry
   belongs_to :position
   belongs_to :city
-
+  belongs_to :sub_industry
+  belongs_to :sub_position
+  belongs_to :area
 
   # validates_presence_of :sub_industry_id
   # validates_presence_of :sub_position_id
