@@ -62,9 +62,8 @@ ul{
     box-shadow: 1px 1px 1px #cccccc;
     font-size: 1.5em;
     line-height: 1.5em;
-    position: fixed;
-    right: 10px;
-    width: 300px;
+    margin-left: 127px;
+    width: 80%;
     z-index: 2147483647;
 }
 

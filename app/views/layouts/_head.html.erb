@@ -26,3 +26,8 @@
     <% end %>
   </div>
 </div>
+<% if !user_signed_in?%>
+    <div class="alert alert-success fade in flash-message" style="top: 81px; left: 130px; ">
+      <button class="close" type="button">×</button>
+    </div>
+<% end %>
