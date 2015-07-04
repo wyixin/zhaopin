@@ -27,3 +27,6 @@ jQuery ->
 
   $("#operate_info_div").mouseover ->
     $(@).show()
+
+  $("#search").click ->
+    $("#search_form").submit()

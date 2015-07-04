@@ -4,11 +4,11 @@
       <%=image_tag 'logo.png', :alt=>"logo", :class=>"img-responsive logo"%>
     </div>
     <% if current_user.present? and current_user.role.customer? %>
-        <form action="<%=resumes_path%>" class="col-12 col-offset-5">
+        <form action="<%=resumes_path%>" class="col-12 col-offset-5" id="search_form">
             <input name="key_words" type="text" placeholder="简历关键字搜索(支持职位分类)" class="col-48 ipt-primary" value="<%=params[:key_words]%>"/>
         </form>
         <div class="col-4">
-            <button class="col-48 btn-primary">搜索</button>
+            <button class="col-48 btn-primary" id="search">搜索</button>
         </div>
     <% end %>
     <div class="col-6 pull-right">
