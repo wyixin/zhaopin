@@ -5,7 +5,7 @@
         <p>
             <span>版权所有：义乌维鼎人力资源有限公司 鄂ICP 030240</span>
         </p>
-        <p>
+        <p <%if !user_signed_in?%>class="footer-not-singin"<%end%>>
             <span>技术支持：</span>
             <a href="http://www.songguokeji.com" target="_blank">武汉松果科技有限公司</a>
         </p>

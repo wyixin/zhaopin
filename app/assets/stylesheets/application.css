@@ -109,3 +109,9 @@ button.close {
     opacity: 0.2;
     text-shadow: 0 1px 0 white;
 }
+
+.footer-not-singin{
+    float:left;
+    margin-left:-288px;
+    margin-top:-16px;
+}
