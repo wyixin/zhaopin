@@ -1,53 +1,36 @@
-<div class="col-48 footer-banner">
-  <div class="footer-banner-content">
-    <table>
-      <tr>
-        <td>
-          <%= image_tag "foot2.png", size: '53x53'%>
-        </td>
-        <td>
-          <span class="footer-big-font">招聘优势</span>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <span class="footer-little-font">本地、免费、真实、高效</span>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="footer-banner-content">
-    <table>
-      <tr>
-        <td>
-          <%= image_tag "foot3.png", size: '53x53'%>
-        </td>
-        <td>
-          <span class="footer-big-font">服务介绍</span><br>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <span class="footer-little-font">通过互联网让人们生活更简单</span>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="footer-banner-content">
-    <table>
-      <tr>
-        <td>
-          <%= image_tag "foot1.png", size: '53x53'%>
-        </td>
-        <td>
-          <span class="footer-big-font">公司愿景</span>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <span class="footer-little-font">人人信赖的招聘平台</span>
-        </td>
-      </tr>
-    </table>
-  </div>
+<div class="container row footer-banner-container">
+    <div class="col-6"></div>
+    <div class="col-14">
+        <div class="row">
+            <div class="col-10 footer-banner-img">
+                <%= image_tag "foot2.png"%>
+            </div>
+            <div class="footer-banner-disc col-38">
+                <p class="footer-big-font">招聘优势</p>
+                <p class="footer-little-font">本地、免费、真实、高效</p>
+            </div>
+        </div>        
+    </div>
+    <div class="col-14">
+        <div class="row">
+            <div class="col-10 footer-banner-img">
+                <%= image_tag "foot3.png"%>                
+            </div>
+            <div class="footer-banner-disc col-38">
+                <p class="footer-big-font">服务介绍</p>
+                <p class="footer-little-font">通过互联网让人们生活更简单</p>
+            </div>
+        </div>        
+    </div>
+    <div class="col-14">
+        <div class="row">
+            <div class="col-10 footer-banner-img">
+                <%= image_tag "foot1.png"%>                
+            </div>
+            <div class="footer-banner-disc col-38">
+                <p class="footer-big-font">公司愿景</p>
+                <p class="footer-little-font">人人信赖的招聘平台</p>
+            </div>
+        </div>        
+    </div>
 </div>
