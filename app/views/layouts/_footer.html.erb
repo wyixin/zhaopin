@@ -1,4 +1,7 @@
-<div class="footer">
+<%if !user_signed_in?%>
+    <%=render '/layouts/footer_banner'%>
+<%end%>
+<div class="col-48 footer <% if params[:controller]=='users/registrations' or params[:controller]=='users/sessions'%>footer-reg-singin<%elsif params[:controller]=='devise/passwords'%>footer-pass<%end%>" <%if params[:action]=="about_us" or user_signed_in?%>style="margin-top: 0px;"<%end%>>
         <p>
           <span>地址：浙江省义乌市福田街道福田社区工人北路861号603室</span>
         </p>

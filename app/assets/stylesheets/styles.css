@@ -1293,7 +1293,7 @@ table tr td {
   border: 2px solid #1866b8;
 }
 .header {
-  padding: 2em 0;
+  padding: 2em 0 5px;
 }
 .header .logo {
   height: 60px;
@@ -1809,6 +1809,16 @@ table tr td {
 .userWrapper .userInfo .gender {
   z-index: 100;
 }
+.footer{
+    margin-top: -170px;
+}
+
+.footer-reg-singin{
+    margin-top: -208px;
+}
+.footer-pass{
+    margin-top: -69px;
+}
 .footer p{
     font-size: 14px;
     text-align: center;
@@ -1824,6 +1834,8 @@ table tr td {
     height: 460px;
     width: 740px;
     margin: auto;
+    padding-bottom: 30px;
+    padding-top: 35px;
 }
 .loginWrapper .loginBoxBackgroundColor {
     height: 100%;
@@ -1845,6 +1857,7 @@ table tr td {
     background-color: #fff;
     padding: 5em 0;
     color: #a0a0a0;
+    padding-top: 45px;
 }
 .loginWrapper .loginContentBox .loginContent .loginSideTab {
     padding: .5em;

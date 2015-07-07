@@ -109,3 +109,48 @@ button.close {
     opacity: 0.2;
     text-shadow: 0 1px 0 white;
 }
+.zp-index{
+    background: url('/assets/back-ground.png') no-repeat center;
+}
+.company-new-error-ul{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+.footer-little-font{
+    color:#a0a0a0;
+    font-size: 14px;
+}
+.footer-big-font{
+    color: #1866b8;
+    font-size: 18px;
+}
+.footer-banner{
+    background-color:#ffffff;
+    margin-top: -257px;
+    text-align: center;
+    padding-left: 340px;
+}
+.footer-banner-singin{
+    margin-top: -309px;
+}
+.footer-banner-reg{
+    margin-top: -299px;
+}
+
+.footer-banner-pass{
+    margin-top: -157px;
+}
+.footer-banner-content{
+    padding-left: 50px;
+    float: left;
+}
+.footer-banner .footer-banner-content table{
+    border: 0px;
+}
+.footer-banner .footer-banner-content tr{
+    border: 0px;
+}
+.footer-banner .footer-banner-content td{
+    padding: 0px;
+}

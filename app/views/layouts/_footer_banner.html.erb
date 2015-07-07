@@ -1,0 +1,53 @@
+<div class="col-48 footer-banner <% if params[:controller]=='users/registrations' %>footer-banner-reg<%elsif params[:controller]=='users/sessions'%>footer-banner-singin<%elsif params[:controller]=='devise/passwords'%>footer-banner-pass<%end%>" <%if params[:action]=="about_us"%>style="margin-top: 0px;"<%end%>>
+  <div class="footer-banner-content">
+    <table>
+      <tr>
+        <td>
+          <%= image_tag "foot2.png", size: '53x53'%>
+        </td>
+        <td>
+          <span class="footer-big-font">招聘优势</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <span class="footer-little-font">本地、免费、真实、高效</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer-banner-content">
+    <table>
+      <tr>
+        <td>
+          <%= image_tag "foot3.png", size: '53x53'%>
+        </td>
+        <td>
+          <span class="footer-big-font">服务介绍</span><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <span class="footer-little-font">通过互联网让人们生活更简单</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer-banner-content">
+    <table>
+      <tr>
+        <td>
+          <%= image_tag "foot1.png", size: '53x53'%>
+        </td>
+        <td>
+          <span class="footer-big-font">公司愿景</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <span class="footer-little-font">人人信赖的招聘平台</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

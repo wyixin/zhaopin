@@ -1,7 +1,7 @@
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
-      <ul>
+      <ul class="company-new-error-ul">
       <% @company.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -9,19 +9,19 @@
     </div>
   <% end %>
 
-    <div class="col-48 line">
+    <div class="col-48 line" style="margin-bottom: 5px;">
       <input id="company_name" type="text" name="company[name]" placeholder="请输入公司名称" class="col-48"/>
     </div>
 
-    <div class="col-48 line">
+    <div class="col-48 line" style="margin-bottom: 5px;">
       <input id="company_phone" type="text" name="company[phone]" placeholder="请输入联系人号码" class="col-48"/>
     </div>
 
-    <div class="col-48 line">
+    <div class="col-48 line" style="margin-bottom: 5px;">
       <input id="company_email" type="text" name="company[email]" placeholder="请输入公司邮箱" class="col-48"/>
     </div>
 
-    <div class="col-48">
+    <div class="col-48" style="margin-bottom: 5px;">
       <span class="light">如注册中遇到问题，<br/>请拨打服务热线：0579-85501180</span>
       <button class="btn-block btn-primary">企业信息提交</button>
     </div>
