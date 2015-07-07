@@ -1810,15 +1810,11 @@ table tr td {
   z-index: 100;
 }
 .footer{
-    margin-top: -170px;
+    position: relative;
+    top:-100%;
 }
 
-.footer-reg-singin{
-    margin-top: -208px;
-}
-.footer-pass{
-    margin-top: -69px;
-}
+
 .footer p{
     font-size: 14px;
     text-align: center;

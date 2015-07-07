@@ -131,20 +131,12 @@ button.close {
 }
 .footer-banner{
     background-color:#ffffff;
-    margin-top: -257px;
     text-align: center;
     padding-left: 340px;
-}
-.footer-banner-singin{
-    margin-top: -309px;
-}
-.footer-banner-reg{
-    margin-top: -299px;
+    position: relative;
+    top:-100%;
 }
 
-.footer-banner-pass{
-    margin-top: -157px;
-}
 .footer-banner-content{
     padding-left: 50px;
     float: left;
