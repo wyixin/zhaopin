@@ -127,6 +127,8 @@ button.close {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    padding-bottom: 30px;
+    padding-top: 35px;
 }
 
 .company-new-error-ul {
@@ -161,8 +163,7 @@ button.close {
 
 .right_job_info {
     width: 240px;
-    max-height: 395px;
-    margin-top: -425px;
+    height: 460px;
     float: right;
     opacity: 0.8;
     background-color: #ffffff;

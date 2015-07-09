@@ -1829,9 +1829,8 @@ table tr td {
 .loginWrapper {
     height: 460px;
     width: 740px;
-    margin: auto;
-    padding-bottom: 30px;
-    padding-top: 35px;
+    display: inline-block;
+    margin-left: 30%;
 }
 .loginWrapper .loginBoxBackgroundColor {
     height: 100%;

@@ -2,7 +2,7 @@
 <% if jobs.present?%>
     <div class="right_job_info">
       <ul>
-        <% Job.order('created_at desc').limit(6).each do |job|%>
+        <% jobs.each do |job|%>
             <li>
               <span class="footer-big-font"><%=job.name %></span><br/>
                   <span class="footer-little-font">
