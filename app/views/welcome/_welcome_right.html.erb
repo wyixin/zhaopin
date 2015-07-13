@@ -1,6 +1,7 @@
-<%jobs = Job.order('created_at desc').limit(6)%>
+<%jobs = Job.order('created_at desc').limit(5)%>
 <% if jobs.present?%>
     <div class="right_job_info">
+      <div>招聘热门职位信息</div>
       <ul>
         <% jobs.each do |job|%>
             <li>
