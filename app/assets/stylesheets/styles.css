@@ -1826,11 +1826,14 @@ table tr td {
 .footer a:hover{
     color: #337ab7;
 }
+.login-container {
+    background-color: #fff;
+    margin-bottom: 20px;
+}
 .loginWrapper {
     height: 350px;
     width: 740px;
     display: inline-block;
-    margin-left: 15%;
 }
 .loginWrapper .loginBoxBackgroundColor {
     height: 100%;
@@ -1849,10 +1852,7 @@ table tr td {
 .loginWrapper .loginContentBox .loginContent {
     height: 100%;
     width: 100%;
-    background-color: #fff;
-    padding: 5em 0;
     color: #a0a0a0;
-    padding-top: 45px;
 }
 .loginWrapper .loginContentBox .loginContent .loginSideTab {
     padding: .5em;
@@ -1861,7 +1861,6 @@ table tr td {
     background-color: #a0a0a0;
 }
 .loginWrapper .loginContentBox .loginContent .loginSideTab.active {
-    color: #fff;
     background-color: #1866b8;
 }
 .loginWrapper .loginContentBox .loginContent .loginTopTab {
@@ -1880,6 +1879,9 @@ table tr td {
 .loginWrapper .loginContentBox .loginContent .loginContentBody a {
     color: #a0a0a0;
     display: inline-block;
+}
+
+.new_user a {
     height: 40px;
     line-height: 40px;
 }
